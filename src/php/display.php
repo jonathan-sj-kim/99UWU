@@ -1,5 +1,5 @@
 <?php
-function renterQuery($connection, $sql)
+function displayQueryResults($connection, $sql)
 {
     $result = mysqli($connection, $sql) or die(mysqli_error($connection));
     if (mysqli_num_rows($result) > 0) {
@@ -26,15 +26,3 @@ cellpadding=\"0\"><tr align=\"center\" bgcolor=\"#CCCCCC\">";
         echo "</table>";
     }
 }
-
-include 'connect.php';
-$budget = $_POST['budget'];
-$noBedroom = $_POST['noBedrooms'];
-$zone = $_POST['zone'];
-$parking = $_POST['parking'];
-$connection = OpenCon();
-$sql = "SELECT l.address, l.rating, l.price 
-FROM  listings l
-WHERE l.price <= $budget AND l.capacity >= $noBedroom AND l.zone LIKE $zone AND l.parking = $parking";
-renterQuery($connection, $sql);
-?>
