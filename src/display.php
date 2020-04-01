@@ -1,7 +1,7 @@
 <?php
 function displayQueryResults($connection, $sql)
 {
-    $result = mysqli($connection, $sql) or die(mysqli_error($connection));
+    $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
     if (mysqli_num_rows($result) > 0) {
         echo "<table width=\"100%\" border=\"0\" cellspacing=\"2\"
 cellpadding=\"0\"><tr align=\"center\" bgcolor=\"#CCCCCC\">";
