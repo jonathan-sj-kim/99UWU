@@ -1,5 +1,5 @@
 <?php
-function login($conn, $sql)
+function login($conn, $sql, $username)
 {
     $result = mysqli_query($conn, $sql);
     if (!$result) {
@@ -8,7 +8,7 @@ function login($conn, $sql)
     $rows = mysqli_fetch_assoc($result);
     $name = array_values($rows)[0];
     if ($name) {
-        header('Location: welcome.php?username='.$name);
+        header('Location: welcome.php?name='.urlencode($name).'&username='.urlencode($username));
     } else {
         header('Location: ../../html/failedLogin.html');
     }
@@ -19,5 +19,5 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $connection = OpenCon();
 $sql = "SELECT u.Name FROM users u WHERE u.Username = '$username' AND u.Password = '$password'";
-login($connection, $sql);
+login($connection, $sql, $username);
 CloseCon($connection);
