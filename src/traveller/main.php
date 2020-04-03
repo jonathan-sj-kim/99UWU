@@ -10,14 +10,15 @@ function login($conn, $sql, $username)
     if ($name) {
         header('Location: welcome.php?name='.urlencode($name).'&username='.urlencode($username));
     } else {
-        header('Location: ../../html/failedLogin.html');
+        header('Location: ../main/failedLogin.html');
     }
+    CloseCon($conn);
 }
 include '../connect.php';
 echo 'Logging in...';
 $username = $_POST['username'];
 $password = $_POST['password'];
 $connection = OpenCon();
-$sql = "SELECT u.Name FROM users u WHERE u.Username = '$username' AND u.Password = '$password'";
+$sql = "SELECT u.Name FROM traveller u WHERE u.Username = '$username' AND u.Password = '$password'";
 login($connection, $sql, $username);
 CloseCon($connection);

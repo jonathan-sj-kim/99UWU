@@ -5,13 +5,18 @@
     <title>Welcome Admin Team!</title>
 </head>
 <body>
+Hello Admin team!
+</br>
 What would you like to do?
-<input name="renter_btn" type = "button"
-       value = "Search"
-       onclick="window.location.href = 'search.html';" />
-
-<input name="admin_btn" type = "button"
-       value = "Advanced Search"
-       onclick="window.location.href = 'advancedSearch.html';" />
+<form action="main.php" method="post">
+    </br>
+    <input name="search_btn" type = "submit"
+           value = "Search"/>
+    </br>
+    or
+    </br>
+    <input name="search_btn" type = "submit"
+           value = "Alter database" />
+</form>
 </body>
 </html>
