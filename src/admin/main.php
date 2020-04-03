@@ -4,4 +4,5 @@ if($searchKind == 'Search'){
     header("Location: searchTable.php");
 } else {
     header('Location: advanceTable');
+
 }
