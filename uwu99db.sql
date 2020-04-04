@@ -2,8 +2,8 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 04, 2020 at 02:28 AM
+-- Host: localhost
+-- Generation Time: Apr 04, 2020 at 05:30 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -18,16 +18,19 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `uwu99.2`
+-- Database: `99UWUdb`
 --
+CREATE DATABASE IF NOT EXISTS `99UWU` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `99UWU`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bike`
+-- Table structure for table `Bike`
 --
 
-CREATE TABLE `bike` (
+DROP TABLE IF EXISTS `Bike`;
+CREATE TABLE `Bike` (
   `BID` char(8) NOT NULL,
   `Zone` char(20) NOT NULL,
   `Type` char(20) NOT NULL,
@@ -36,10 +39,10 @@ CREATE TABLE `bike` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `bike`
+-- Dumping data for table `Bike`
 --
 
-INSERT INTO `bike` (`BID`, `Zone`, `Type`, `Rate`, `Active`) VALUES
+INSERT INTO `Bike` (`BID`, `Zone`, `Type`, `Rate`, `Active`) VALUES
 ('B1236785', 'Kitsilano', 'Road', 27, 0),
 ('B1243632', 'Downtown', 'Road', 25, 1),
 ('B1789434', 'Downtown', 'Road', 20, 1),
@@ -54,10 +57,11 @@ INSERT INTO `bike` (`BID`, `Zone`, `Type`, `Rate`, `Active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bookedlisting`
+-- Table structure for table `BookedListing`
 --
 
-CREATE TABLE `bookedlisting` (
+DROP TABLE IF EXISTS `BookedListing`;
+CREATE TABLE `BookedListing` (
   `Address` char(20) NOT NULL,
   `Duration` int(11) DEFAULT NULL,
   `Username` char(40) NOT NULL,
@@ -65,10 +69,10 @@ CREATE TABLE `bookedlisting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `bookedlisting`
+-- Dumping data for table `BookedListing`
 --
 
-INSERT INTO `bookedlisting` (`Address`, `Duration`, `Username`, `BookedDate`) VALUES
+INSERT INTO `BookedListing` (`Address`, `Duration`, `Username`, `BookedDate`) VALUES
 ('2020 BeBetter Rd.', 21, 'Amy99@gmail.com', '2023-12-05 00:00:00'),
 ('6123 Joseph St', 18, 'Brandon98@gmail.com', '2025-05-05 00:00:00'),
 ('445 UBC Rd', 5, 'G-Tang@gmail.com', '2025-04-04 00:00:00'),
@@ -80,10 +84,11 @@ INSERT INTO `bookedlisting` (`Address`, `Duration`, `Username`, `BookedDate`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `car`
+-- Table structure for table `Car`
 --
 
-CREATE TABLE `car` (
+DROP TABLE IF EXISTS `Car`;
+CREATE TABLE `Car` (
   `PlateNumber` char(8) NOT NULL,
   `Zone` char(20) NOT NULL,
   `Insurance` char(20) NOT NULL,
@@ -93,10 +98,10 @@ CREATE TABLE `car` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `car`
+-- Dumping data for table `Car`
 --
 
-INSERT INTO `car` (`PlateNumber`, `Zone`, `Insurance`, `Model`, `Rate`, `Active`) VALUES
+INSERT INTO `Car` (`PlateNumber`, `Zone`, `Insurance`, `Model`, `Rate`, `Active`) VALUES
 ('123-BDDJ', 'Downtown', 'N1289427385', 'Honda Civic', 3.9, 1),
 ('13N-2N1', 'Downtown', 'N793628229', 'Toyota Camry', 4.1, 1),
 ('13N2-2N1', 'UBC', 'N7936283948', 'Toyota Camry', 4.2, 0),
@@ -111,19 +116,20 @@ INSERT INTO `car` (`PlateNumber`, `Zone`, `Insurance`, `Model`, `Rate`, `Active`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `friend`
+-- Table structure for table `Friend`
 --
 
-CREATE TABLE `friend` (
-  `Username` char(40) NOT NULL,
+DROP TABLE IF EXISTS `Friend`;
+CREATE TABLE `Friend` (
+  `Username` char(30) NOT NULL,
   `Email` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `friend`
+-- Dumping data for table `Friend`
 --
 
-INSERT INTO `friend` (`Username`, `Email`) VALUES
+INSERT INTO `Friend` (`Username`, `Email`) VALUES
 ('BioProf@gmail.com', 'Bfriend@gmail.com'),
 ('G-Tang@gmail.com', 'Gfriend@gmail.com'),
 ('JK4Prez@gmail.com', 'Jfriend@gmail.com'),
@@ -133,10 +139,11 @@ INSERT INTO `friend` (`Username`, `Email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `housekeeper`
+-- Table structure for table `Housekeeper`
 --
 
-CREATE TABLE `housekeeper` (
+DROP TABLE IF EXISTS `Housekeeper`;
+CREATE TABLE `Housekeeper` (
   `HID` char(8) NOT NULL,
   `Zone` char(20) NOT NULL,
   `Rate` float NOT NULL DEFAULT 0,
@@ -144,10 +151,10 @@ CREATE TABLE `housekeeper` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `housekeeper`
+-- Dumping data for table `Housekeeper`
 --
 
-INSERT INTO `housekeeper` (`HID`, `Zone`, `Rate`, `Active`) VALUES
+INSERT INTO `Housekeeper` (`HID`, `Zone`, `Rate`, `Active`) VALUES
 ('HK127389', 'Downtown', 13.5, 1),
 ('HK128934', 'UBC', 13, 1),
 ('HK637823', 'Downtown', 13.5, 1),
@@ -162,19 +169,20 @@ INSERT INTO `housekeeper` (`HID`, `Zone`, `Rate`, `Active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `housekeepingagent`
+-- Table structure for table `HousekeepingAgent`
 --
 
-CREATE TABLE `housekeepingagent` (
+DROP TABLE IF EXISTS `HousekeepingAgent`;
+CREATE TABLE `HousekeepingAgent` (
   `Username` char(40) NOT NULL,
   `Zone` char(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `housekeepingagent`
+-- Dumping data for table `HousekeepingAgent`
 --
 
-INSERT INTO `housekeepingagent` (`Username`, `Zone`) VALUES
+INSERT INTO `HousekeepingAgent` (`Username`, `Zone`) VALUES
 ('DTClearnhouses@gmail.com', 'Downtown'),
 ('NoTrouble@gmail.com', 'Kerrisdale'),
 ('KitsHK@gmail.com', 'Kitsilano'),
@@ -184,10 +192,11 @@ INSERT INTO `housekeepingagent` (`Username`, `Zone`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `listing`
+-- Table structure for table `Listing`
 --
 
-CREATE TABLE `listing` (
+DROP TABLE IF EXISTS `Listing`;
+CREATE TABLE `Listing` (
   `Address` char(30) NOT NULL,
   `Username` char(40) DEFAULT NULL,
   `Price` float NOT NULL,
@@ -197,10 +206,10 @@ CREATE TABLE `listing` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `listing`
+-- Dumping data for table `Listing`
 --
 
-INSERT INTO `listing` (`Address`, `Username`, `Price`, `Parking`, `Active`, `Rating`) VALUES
+INSERT INTO `Listing` (`Address`, `Username`, `Price`, `Parking`, `Active`, `Rating`) VALUES
 ('001 GoodGame Ave', 'kitsRentals@gmail.com', 222, 1, 0, 3.8),
 ('001 Trump Ave', 'DTStays@gmail.com', 60, 0, 0, 2.2),
 ('123 CPSC Street', 'UBCvisits@gmail.com', 65, 1, 1, 2.8),
@@ -218,10 +227,11 @@ INSERT INTO `listing` (`Address`, `Username`, `Price`, `Parking`, `Active`, `Rat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loanedbike`
+-- Table structure for table `LoanedBike`
 --
 
-CREATE TABLE `loanedbike` (
+DROP TABLE IF EXISTS `LoanedBike`;
+CREATE TABLE `LoanedBike` (
   `BID` char(8) NOT NULL,
   `Username` char(40) NOT NULL,
   `LoanDate` datetime NOT NULL,
@@ -229,10 +239,10 @@ CREATE TABLE `loanedbike` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `loanedbike`
+-- Dumping data for table `LoanedBike`
 --
 
-INSERT INTO `loanedbike` (`BID`, `Username`, `LoanDate`, `Duration`) VALUES
+INSERT INTO `LoanedBike` (`BID`, `Username`, `LoanDate`, `Duration`) VALUES
 ('B1243632', 'Brandon98@gmail.com', '2012-02-25 00:00:00', 2),
 ('B1789434', 'JK4Prez@gmail.com', '2012-01-01 00:00:00', 5),
 ('B3456582', 'Harry88@gmail.com', '2012-04-01 00:00:00', 6),
@@ -242,10 +252,11 @@ INSERT INTO `loanedbike` (`BID`, `Username`, `LoanDate`, `Duration`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderedhousekeeper`
+-- Table structure for table `OrderedHousekeeper`
 --
 
-CREATE TABLE `orderedhousekeeper` (
+DROP TABLE IF EXISTS `OrderedHousekeeper`;
+CREATE TABLE `OrderedHousekeeper` (
   `HID` char(8) NOT NULL,
   `Address` char(20) NOT NULL,
   `Username` char(40) NOT NULL,
@@ -254,10 +265,10 @@ CREATE TABLE `orderedhousekeeper` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `orderedhousekeeper`
+-- Dumping data for table `OrderedHousekeeper`
 --
 
-INSERT INTO `orderedhousekeeper` (`HID`, `Address`, `Username`, `OrderedDate`, `Hours`) VALUES
+INSERT INTO `OrderedHousekeeper` (`HID`, `Address`, `Username`, `OrderedDate`, `Hours`) VALUES
 ('HK127389', '2918 Granville St', 'JK4Prez@gmail.com', '2020-01-01 00:00:00', 6),
 ('HK128934', '445 UBC Rd', 'G-Tang@gmail.com', '2025-04-04 00:00:00', 4),
 ('HK743234', '999 Kobe Street', 'G-Tang@gmail.com', '2024-03-03 00:00:00', 3),
@@ -267,19 +278,20 @@ INSERT INTO `orderedhousekeeper` (`HID`, `Address`, `Username`, `OrderedDate`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `propertyagent`
+-- Table structure for table `PropertyAgent`
 --
 
-CREATE TABLE `propertyagent` (
+DROP TABLE IF EXISTS `PropertyAgent`;
+CREATE TABLE `PropertyAgent` (
   `Username` char(40) NOT NULL,
   `Zone` char(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `propertyagent`
+-- Dumping data for table `PropertyAgent`
 --
 
-INSERT INTO `propertyagent` (`Username`, `Zone`) VALUES
+INSERT INTO `PropertyAgent` (`Username`, `Zone`) VALUES
 ('bestdtrentals@gmail.com', 'Downtown'),
 ('DTStays@gmail.com', 'Downtown'),
 ('holidayStay@gmail.com', 'North Vancouver'),
@@ -292,10 +304,11 @@ INSERT INTO `propertyagent` (`Username`, `Zone`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rentedcar`
+-- Table structure for table `RentedCar`
 --
 
-CREATE TABLE `rentedcar` (
+DROP TABLE IF EXISTS `RentedCar`;
+CREATE TABLE `RentedCar` (
   `PlateNumber` char(8) NOT NULL,
   `Username` char(40) NOT NULL,
   `RentDate` datetime NOT NULL,
@@ -303,10 +316,10 @@ CREATE TABLE `rentedcar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `rentedcar`
+-- Dumping data for table `RentedCar`
 --
 
-INSERT INTO `rentedcar` (`PlateNumber`, `Username`, `RentDate`, `Duration`) VALUES
+INSERT INTO `RentedCar` (`PlateNumber`, `Username`, `RentDate`, `Duration`) VALUES
 ('13N2-2N1', 'Harry88@gmail.com', '2019-04-01 00:00:00', 6),
 ('243-BBCI', 'RL7799@gmail.com', '2018-03-12 00:00:00', 21),
 ('243-BDDJ', 'JK4Prez@gmail.com', '2020-01-01 00:00:00', 5),
@@ -316,20 +329,21 @@ INSERT INTO `rentedcar` (`PlateNumber`, `Username`, `RentDate`, `Duration`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `takentour`
+-- Table structure for table `TakenTour`
 --
 
-CREATE TABLE `takentour` (
+DROP TABLE IF EXISTS `TakenTour`;
+CREATE TABLE `TakenTour` (
   `Name` char(30) NOT NULL,
   `Username` char(40) NOT NULL,
   `TakenDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `takentour`
+-- Dumping data for table `TakenTour`
 --
 
-INSERT INTO `takentour` (`Name`, `Username`, `TakenDate`) VALUES
+INSERT INTO `TakenTour` (`Name`, `Username`, `TakenDate`) VALUES
 ('Campus tour', 'Harry78@gmail.com', '1999-02-03 00:00:00'),
 ('Fire works', 'RL7799@gmail.com', '2020-04-13 00:00:00'),
 ('Historical Walk', 'PhysicsProf@gmail.com', '1929-08-01 00:00:00'),
@@ -339,10 +353,11 @@ INSERT INTO `takentour` (`Name`, `Username`, `TakenDate`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tour`
+-- Table structure for table `Tour`
 --
 
-CREATE TABLE `tour` (
+DROP TABLE IF EXISTS `Tour`;
+CREATE TABLE `Tour` (
   `Name` char(30) NOT NULL,
   `Zone` char(20) DEFAULT NULL,
   `Price` int(11) NOT NULL,
@@ -350,10 +365,10 @@ CREATE TABLE `tour` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tour`
+-- Dumping data for table `Tour`
 --
 
-INSERT INTO `tour` (`Name`, `Zone`, `Price`, `Active`) VALUES
+INSERT INTO `Tour` (`Name`, `Zone`, `Price`, `Active`) VALUES
 ('Beach walk', 'Kitsilano', 20, 1),
 ('Campus tour', 'UBC', 15, 0),
 ('Christmas Market', 'Downtown', 15, 0),
@@ -368,20 +383,21 @@ INSERT INTO `tour` (`Name`, `Zone`, `Price`, `Active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tourismagent`
+-- Table structure for table `TourismAgent`
 --
 
-CREATE TABLE `tourismagent` (
+DROP TABLE IF EXISTS `TourismAgent`;
+CREATE TABLE `TourismAgent` (
   `Username` char(40) NOT NULL,
   `Zone` char(20) NOT NULL,
   `Website` char(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tourismagent`
+-- Dumping data for table `TourismAgent`
 --
 
-INSERT INTO `tourismagent` (`Username`, `Zone`, `Website`) VALUES
+INSERT INTO `TourismAgent` (`Username`, `Zone`, `Website`) VALUES
 ('BestTours@gmail.com', 'Kitsilano', 'www.besttours.com'),
 ('FamilyTours@gmail.com', 'UBC', 'www.familytours.com'),
 ('Hottours@gmail.com', 'Kerrisdale', 'www.hottours.com'),
@@ -391,20 +407,21 @@ INSERT INTO `tourismagent` (`Username`, `Zone`, `Website`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transportationagent`
+-- Table structure for table `TransportationAgent`
 --
 
-CREATE TABLE `transportationagent` (
+DROP TABLE IF EXISTS `TransportationAgent`;
+CREATE TABLE `TransportationAgent` (
   `Username` char(40) NOT NULL,
   `Zone` char(20) NOT NULL,
   `CRate` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `transportationagent`
+-- Dumping data for table `TransportationAgent`
 --
 
-INSERT INTO `transportationagent` (`Username`, `Zone`, `CRate`) VALUES
+INSERT INTO `TransportationAgent` (`Username`, `Zone`, `CRate`) VALUES
 ('Avis@gmail.com', 'Kitsilano', 4.2),
 ('Enterprise@gmail.com', 'Downtown', 4.1),
 ('TransportationRentals@gmail.com', 'North Vancouver', 3.9),
@@ -414,19 +431,20 @@ INSERT INTO `transportationagent` (`Username`, `Zone`, `CRate`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `traveller`
+-- Table structure for table `Traveller`
 --
 
-CREATE TABLE `traveller` (
-  `Username` char(40) NOT NULL,
+DROP TABLE IF EXISTS `Traveller`;
+CREATE TABLE `Traveller` (
+  `Username` char(30) NOT NULL,
   `PreferredRating` float DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `traveller`
+-- Dumping data for table `Traveller`
 --
 
-INSERT INTO `traveller` (`Username`, `PreferredRating`) VALUES
+INSERT INTO `Traveller` (`Username`, `PreferredRating`) VALUES
 ('Amy99@gmail.com', 0),
 ('BioProf@gmail.com', 3),
 ('Brandon98@gmail.com', 5),
@@ -440,20 +458,21 @@ INSERT INTO `traveller` (`Username`, `PreferredRating`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `Users`
 --
 
-CREATE TABLE `users` (
+DROP TABLE IF EXISTS `Users`;
+CREATE TABLE `Users` (
   `Username` varchar(40) NOT NULL,
   `Password` varchar(20) NOT NULL,
   `Name` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `Users`
 --
 
-INSERT INTO `users` (`Username`, `Password`, `Name`) VALUES
+INSERT INTO `Users` (`Username`, `Password`, `Name`) VALUES
 ('Amy99@gmail.com', 'ilovecats', 'Amy'),
 ('Avis@gmail.com', 'avisthebest', 'Avis'),
 ('bestdtrentals@gmail.com', 'cool', 'Best Rentals'),
@@ -482,6 +501,7 @@ INSERT INTO `users` (`Username`, `Password`, `Name`) VALUES
 ('TransportationRentals@gmail.com', 'rentals', 'Transportation Rentals'),
 ('TravelGo@gmail.com', 'yesgo!', 'Travel Go'),
 ('TravellingTours@gmail.com', '2020nice', 'Travelling Tours'),
+('TravelllingTours@gmail.com', '2020nice', 'Travelling Tours'),
 ('TripAdvisors@gmail.com', 'wow', 'Trip Advisors'),
 ('tripstay@gmail.com', 'Kerrisdale', 'Trip Stay'),
 ('UBCStay@gmail.com', 'foreveryoung', 'UBC Stay'),
@@ -493,119 +513,119 @@ INSERT INTO `users` (`Username`, `Password`, `Name`) VALUES
 --
 
 --
--- Indexes for table `bike`
+-- Indexes for table `Bike`
 --
-ALTER TABLE `bike`
+ALTER TABLE `Bike`
   ADD PRIMARY KEY (`BID`),
   ADD KEY `Zone` (`Zone`);
 
 --
--- Indexes for table `bookedlisting`
+-- Indexes for table `BookedListing`
 --
-ALTER TABLE `bookedlisting`
-  ADD PRIMARY KEY (`Username`,`Address`),
+ALTER TABLE `BookedListing`
+  ADD PRIMARY KEY (`Username`,`Address`,`BookedDate`) USING BTREE,
   ADD KEY `Address` (`Address`);
 
 --
--- Indexes for table `car`
+-- Indexes for table `Car`
 --
-ALTER TABLE `car`
+ALTER TABLE `Car`
   ADD PRIMARY KEY (`PlateNumber`),
   ADD UNIQUE KEY `Insurance` (`Insurance`),
   ADD KEY `Zone` (`Zone`);
 
 --
--- Indexes for table `friend`
+-- Indexes for table `Friend`
 --
-ALTER TABLE `friend`
+ALTER TABLE `Friend`
   ADD PRIMARY KEY (`Username`,`Email`);
 
 --
--- Indexes for table `housekeeper`
+-- Indexes for table `Housekeeper`
 --
-ALTER TABLE `housekeeper`
+ALTER TABLE `Housekeeper`
   ADD PRIMARY KEY (`HID`),
   ADD KEY `Zone` (`Zone`);
 
 --
--- Indexes for table `housekeepingagent`
+-- Indexes for table `HousekeepingAgent`
 --
-ALTER TABLE `housekeepingagent`
+ALTER TABLE `HousekeepingAgent`
   ADD PRIMARY KEY (`Username`),
   ADD UNIQUE KEY `Zone` (`Zone`);
 
 --
--- Indexes for table `listing`
+-- Indexes for table `Listing`
 --
-ALTER TABLE `listing`
+ALTER TABLE `Listing`
   ADD PRIMARY KEY (`Address`),
   ADD KEY `Username` (`Username`);
 
 --
--- Indexes for table `loanedbike`
+-- Indexes for table `LoanedBike`
 --
-ALTER TABLE `loanedbike`
-  ADD PRIMARY KEY (`BID`,`Username`),
+ALTER TABLE `LoanedBike`
+  ADD PRIMARY KEY (`BID`,`Username`,`LoanDate`),
   ADD KEY `Username` (`Username`);
 
 --
--- Indexes for table `orderedhousekeeper`
+-- Indexes for table `OrderedHousekeeper`
 --
-ALTER TABLE `orderedhousekeeper`
+ALTER TABLE `OrderedHousekeeper`
   ADD PRIMARY KEY (`HID`,`Address`,`Username`,`OrderedDate`),
   ADD KEY `Address` (`Address`,`Username`);
 
 --
--- Indexes for table `propertyagent`
+-- Indexes for table `PropertyAgent`
 --
-ALTER TABLE `propertyagent`
+ALTER TABLE `PropertyAgent`
   ADD PRIMARY KEY (`Username`);
 
 --
--- Indexes for table `rentedcar`
+-- Indexes for table `RentedCar`
 --
-ALTER TABLE `rentedcar`
-  ADD PRIMARY KEY (`PlateNumber`,`Username`),
+ALTER TABLE `RentedCar`
+  ADD PRIMARY KEY (`PlateNumber`,`Username`,`RentDate`),
   ADD KEY `Username` (`Username`);
 
 --
--- Indexes for table `takentour`
+-- Indexes for table `TakenTour`
 --
-ALTER TABLE `takentour`
+ALTER TABLE `TakenTour`
   ADD PRIMARY KEY (`Name`,`Username`,`TakenDate`),
   ADD KEY `Username` (`Username`);
 
 --
--- Indexes for table `tour`
+-- Indexes for table `Tour`
 --
-ALTER TABLE `tour`
+ALTER TABLE `Tour`
   ADD PRIMARY KEY (`Name`),
   ADD KEY `Zone` (`Zone`);
 
 --
--- Indexes for table `tourismagent`
+-- Indexes for table `TourismAgent`
 --
-ALTER TABLE `tourismagent`
+ALTER TABLE `TourismAgent`
   ADD PRIMARY KEY (`Username`),
   ADD UNIQUE KEY `Zone` (`Zone`);
 
 --
--- Indexes for table `transportationagent`
+-- Indexes for table `TransportationAgent`
 --
-ALTER TABLE `transportationagent`
+ALTER TABLE `TransportationAgent`
   ADD PRIMARY KEY (`Username`),
   ADD UNIQUE KEY `Zone` (`Zone`);
 
 --
--- Indexes for table `traveller`
+-- Indexes for table `Traveller`
 --
-ALTER TABLE `traveller`
+ALTER TABLE `Traveller`
   ADD PRIMARY KEY (`Username`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `Users`
 --
-ALTER TABLE `users`
+ALTER TABLE `Users`
   ADD PRIMARY KEY (`Username`);
 
 --
@@ -613,105 +633,105 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints for table `bike`
+-- Constraints for table `Bike`
 --
-ALTER TABLE `bike`
-  ADD CONSTRAINT `bike_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `transportationagent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
+ALTER TABLE `Bike`
+  ADD CONSTRAINT `Bike_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `TransportationAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `bookedlisting`
+-- Constraints for table `BookedListing`
 --
-ALTER TABLE `bookedlisting`
-  ADD CONSTRAINT `bookedlisting_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `bookedlisting_ibfk_2` FOREIGN KEY (`Address`) REFERENCES `listing` (`Address`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `BookedListing`
+  ADD CONSTRAINT `BookedListing_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `BookedListing_ibfk_2` FOREIGN KEY (`Address`) REFERENCES `Listing` (`Address`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `car`
+-- Constraints for table `Car`
 --
-ALTER TABLE `car`
-  ADD CONSTRAINT `car_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `transportationagent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
+ALTER TABLE `Car`
+  ADD CONSTRAINT `Car_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `TransportationAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `friend`
+-- Constraints for table `Friend`
 --
-ALTER TABLE `friend`
-  ADD CONSTRAINT `friend_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Friend`
+  ADD CONSTRAINT `Friend_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `housekeeper`
+-- Constraints for table `Housekeeper`
 --
-ALTER TABLE `housekeeper`
-  ADD CONSTRAINT `housekeeper_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `housekeepingagent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
+ALTER TABLE `Housekeeper`
+  ADD CONSTRAINT `Housekeeper_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `HousekeepingAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `housekeepingagent`
+-- Constraints for table `HousekeepingAgent`
 --
-ALTER TABLE `housekeepingagent`
-  ADD CONSTRAINT `housekeepingagent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `HousekeepingAgent`
+  ADD CONSTRAINT `HousekeepingAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `listing`
+-- Constraints for table `Listing`
 --
-ALTER TABLE `listing`
-  ADD CONSTRAINT `listing_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `propertyagent` (`Username`) ON DELETE NO ACTION ON UPDATE CASCADE;
+ALTER TABLE `Listing`
+  ADD CONSTRAINT `Listing_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `PropertyAgent` (`Username`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `loanedbike`
+-- Constraints for table `LoanedBike`
 --
-ALTER TABLE `loanedbike`
-  ADD CONSTRAINT `loanedbike_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `bike` (`BID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `loanedbike_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `LoanedBike`
+  ADD CONSTRAINT `LoanedBike_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `Bike` (`BID`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `LoanedBike_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `orderedhousekeeper`
+-- Constraints for table `OrderedHousekeeper`
 --
-ALTER TABLE `orderedhousekeeper`
-  ADD CONSTRAINT `orderedhousekeeper_ibfk_1` FOREIGN KEY (`HID`) REFERENCES `housekeeper` (`HID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `orderedhousekeeper_ibfk_2` FOREIGN KEY (`Address`,`Username`) REFERENCES `bookedlisting` (`Address`, `Username`) ON DELETE NO ACTION ON UPDATE CASCADE;
+ALTER TABLE `OrderedHousekeeper`
+  ADD CONSTRAINT `OrderedHousekeeper_ibfk_1` FOREIGN KEY (`HID`) REFERENCES `Housekeeper` (`HID`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `OrderedHousekeeper_ibfk_2` FOREIGN KEY (`Address`,`Username`) REFERENCES `BookedListing` (`Address`, `Username`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `propertyagent`
+-- Constraints for table `PropertyAgent`
 --
-ALTER TABLE `propertyagent`
-  ADD CONSTRAINT `propertyagent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `PropertyAgent`
+  ADD CONSTRAINT `PropertyAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rentedcar`
+-- Constraints for table `RentedCar`
 --
-ALTER TABLE `rentedcar`
-  ADD CONSTRAINT `rentedcar_ibfk_1` FOREIGN KEY (`PlateNumber`) REFERENCES `car` (`PlateNumber`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `rentedcar_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `RentedCar`
+  ADD CONSTRAINT `RentedCar_ibfk_1` FOREIGN KEY (`PlateNumber`) REFERENCES `Car` (`PlateNumber`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `RentedCar_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `takentour`
+-- Constraints for table `TakenTour`
 --
-ALTER TABLE `takentour`
-  ADD CONSTRAINT `takentour_ibfk_1` FOREIGN KEY (`Name`) REFERENCES `tour` (`Name`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `takentour_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `TakenTour`
+  ADD CONSTRAINT `TakenTour_ibfk_1` FOREIGN KEY (`Name`) REFERENCES `Tour` (`Name`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `TakenTour_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tour`
+-- Constraints for table `Tour`
 --
-ALTER TABLE `tour`
-  ADD CONSTRAINT `tour_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `tourismagent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
+ALTER TABLE `Tour`
+  ADD CONSTRAINT `Tour_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `TourismAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `tourismagent`
+-- Constraints for table `TourismAgent`
 --
-ALTER TABLE `tourismagent`
-  ADD CONSTRAINT `tourismagent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `TourismAgent`
+  ADD CONSTRAINT `TourismAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `transportationagent`
+-- Constraints for table `TransportationAgent`
 --
-ALTER TABLE `transportationagent`
-  ADD CONSTRAINT `transportationagent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `TransportationAgent`
+  ADD CONSTRAINT `TransportationAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `traveller`
+-- Constraints for table `Traveller`
 --
-ALTER TABLE `traveller`
-  ADD CONSTRAINT `traveller_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Traveller`
+  ADD CONSTRAINT `Traveller_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
