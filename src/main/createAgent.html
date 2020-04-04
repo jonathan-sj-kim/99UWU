@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Agent Account</title>
+</head>
+<body>
+<h>Welcome to the agent account creation page!</h>
+<form action="createUser.php" method="post">
+    <br>
+    Please provide the following information to create an account
+    </br>
+    <br>
+    <label for="username"> Username</label>
+    <input id="username" name="username" type="text" placeholder="type your username here (email address you wish to login with" required>
+    </br>
+    <label for="password"> Password</label>
+    <input id="password" name="password" type="text" placeholder="type your pass in here (case sensitive)" required>
+    </br>
+    <label for="service name"> Service Name</label>
+    <input id="service name" name="service name" type="text" placeholder="type the name of your agency">
+    </br>
+    Please choose the category of the service you are providing.
+    <label for="Property"> Property </label>
+    <input id="Property" name="Property" type="checkbox" value="Property">
+    <label for="Transportation"> Transportation </label>
+    <input id="Transportation" name="Transportation" type="checkbox" value="Transportation">
+    <label for="Tourism"> Tourism </label>
+    <input id="Tourism" name="Tourism" type="checkbox" value="Tourism">
+    <label for="Housekeeping"> Housekeeping </label>
+    <input id="Housekeeping" name="Housekeeping" type="checkbox" value="Housekeeping">
+    </br>
+    <input type="submit" value="finish">
+
+</form>
+</body>
+</html>
