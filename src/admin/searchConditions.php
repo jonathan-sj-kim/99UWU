@@ -1,5 +1,4 @@
 <?php
-print_r($_POST);
 $tables = $_POST['tables'];
 $columns = $_POST['columns'];
 if (!isset($_POST["selectedColumns"])) {
@@ -43,7 +42,7 @@ Click on done if you do not want to impose any conditions on this search or if y
                 <select id="queryColumns" name="queryColumns[]">
                     <?php for ($c = 0; $c < count($columns); $c++) { ?>
                         <option value="<?php echo $columns[$c]; ?>"
-                            <?php if($queryColumns[$i] == $columns[$c]){ ?>
+                            <?php if ($queryColumns[$i] == $columns[$c]) { ?>
                                 selected
                             <?php } ?>>
                             <?php echo $columns[$c]; ?>
@@ -79,12 +78,14 @@ Click on done if you do not want to impose any conditions on this search or if y
                 <option value="LIKE"> LIKE</option>
             </select>
             <label for="cond">to</label>
-            <input type="text" name="cond[]" id="cond"
-                   value="<?php if (count($cond) > $i) {
-                       echo $cond[$i];
-                   } else {
-                       echo '';
-                   } ?>">
+            <?php if (count($cond) > $i) { ?>
+                <input type="text" name="cond[]" id="cond"
+                       value='<?php echo $cond[$i]; ?>'
+                       placeholder="for strings please use double quotes">
+            <?php } else { ?>
+                <input type="text" name="cond[]" id="cond"
+                       placeholder="for strings please use double quotes">
+            <? } ?>
             <br>
         </p>
     <?php } ?>
@@ -98,9 +99,7 @@ Click on done if you do not want to impose any conditions on this search or if y
         <?php foreach ($selectedColumns as $sc): ?>
             <input type="hidden" id="selectedColumns" name="selectedColumns[]" value="<?php echo $sc; ?>"/>
         <?php endforeach; ?>
-<!--        --><?php //foreach ($queryColumns as $qc): ?>
-<!--            <input type="hidden" id="queryColumns" name="queryColumns[]" value="--><?php //echo $qc; ?><!--"/>-->
-<!--        --><?php //endforeach; ?>
+
         <input type="submit" name="submit" value="Add"/>
         <input type="submit" name="submit" value="Done"/>
     </p>
