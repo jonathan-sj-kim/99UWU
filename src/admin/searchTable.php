@@ -22,13 +22,13 @@ $sql = "SHOW TABLES";
     </br>
     Please refer to the options listed below to make your choice.
     </br>
-    <? $tables = getTable($connection, $sql);
+    <?php $tables = getTable($connection, $sql);
     while ( $table = mysqli_fetch_array($tables) ){
         echo $table[0]; ?>
         <input id="<?php echo $table[0]; ?>" name="table[]" type="checkbox" value="<?php echo $table[0]; ?>">
         </br>
     }
-    <?php  ?>
+    <?php } ?>
     <input type="submit" name="Search" value="Search" />
 </form>
 
