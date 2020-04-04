@@ -24,7 +24,6 @@ if (isset($_POST["submit"])) {
 }
 
 ?>
-?>
 <html>
 <body>
 Here are the tables.columns that you have selected:
