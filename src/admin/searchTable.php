@@ -27,7 +27,8 @@ $sql = "SHOW TABLES";
         echo $table[0]; ?>
         <input id="<?php echo $table[0]; ?>" name="table[]" type="checkbox" value="<?php echo $table[0]; ?>">
         </br>
-    <?php } ?>
+    }
+    <?php  ?>
     <input type="submit" name="Search" value="Search" />
 </form>
 
