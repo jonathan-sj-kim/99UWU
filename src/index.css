@@ -1,27 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url(https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
 }
+
 /* Style the header */
 .header {
     margin-top: 80px;
     background-color: #333;
     opacity: 0.8;
     padding: 10px;
+    font-family: Bahnschrift;
     text-align: left;
     color: white;
-    width: 45%;
-    text-aligh:center;
-    left-margin: 30px;
 }
-
 
 .footer {
     padding: 10px;
-    color: #f2f2f2;
-    font-size:15px;
+    color: white;
+    font-size:18px;
+    font-family: Bahnschrift;
+    background-position: center;
+    text-align: center;
 }
 
 /* Style the top navigation bar */
@@ -35,6 +40,7 @@ body {
     color: #f2f2f2;
     text-align: center;
     padding: 14px 32px;
+    font-family: Bahnschrift;
     text-decoration: none;
     font-size: 18px;
     transition-duration: 0.4s;
@@ -53,6 +59,7 @@ body {
     display: block;
     color: #f2f2f2;
     text-align: center;
+    font-family: Bahnschrift;
     padding: 12px 14px;
     text-decoration: none;
     border: 2px solid #e7e7e7
@@ -64,26 +71,9 @@ body {
     color: blue;
 }
 
-/* input box*/
-
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-/* Style the cancel & submit button */
-.nextstep a {
-    background-color: #333;
-    color: white;
-    display: inline-block;;
-    text-align: center;
-    padding: 5px;
-    text-decoration: none;
-    border: 2px solid white;
-    border-radius: 12px;
-    margin: 2px 1px;
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
