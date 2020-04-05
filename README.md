@@ -13,11 +13,15 @@ for navigating: cd
 to open up execute permissions: chmod 711 ~/public_html
 to open up file permissions: chmod 755 ~/public_html
 to test permissions: ls -la ~/public_html
+https://piazza.com/class/k4d36n4nx1n73z?cid=498
 
 ssh jonkim99@remote.students.cs.ubc.ca
 
 PHP set up: https://www.students.cs.ubc.ca/~cs-304/resources/php-oracle-resources/php-setup.html
 test: https://www.students.cs.ubc.ca/~jonkim99/test.php
+
+https://stackoverflow.com/questions/38709005/php-oci8-11g-dll-is-not-a-valid-win32-application
+(this fucking saved my life^)
 
 Use IntelliJ IDEA for php
 
