@@ -3,7 +3,7 @@ function OpenCon()
 {
     $dbhost = "localhost";
     $dbuser ="root";
-    $dbpass ="cpsc304";
+    $dbpass ="";
     $db = "99UWU";
     //$connection_string = "dbhost.students.cs.ubc.ca:1522/stu";
     //$ociuser ="ora_jonkim99";
@@ -16,7 +16,6 @@ function OpenCon()
     //$dconn = OCILogon($ociuser, $ocipass, $connection_string);
 
     return $conn;
-
 
     /*if ($dconn) {
         echo "Database is Connected";

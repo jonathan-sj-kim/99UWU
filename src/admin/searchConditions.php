@@ -28,9 +28,14 @@ if (isset($_POST["submit"]) AND $_POST["submit"] == "Add") {
 }
 ?>
 <html lang="en">
+
+<head>
+<link rel="stylesheet" type="text/css" href="adminmain.css">
+</head>
+
 <body>
-Here are the tables.columns that you have selected:
-<br>
+<div class="header">
+<h1> Here are the tables.columns that you have selected:</h1>
 <?php foreach ($selectedColumns as $tc) {
     echo $tc . "<br>";
 } ?>
@@ -103,7 +108,9 @@ Click on done if you do not want to impose any conditions on this search or if y
         <input type="submit" name="submit" value="Add"/>
         <input type="submit" name="submit" value="Done"/>
     </p>
-</form>
 
+
+</form>
+</div>
 </body>
 </html>

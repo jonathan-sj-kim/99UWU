@@ -1,0 +1,100 @@
+
+body {
+    background-image: url("https://images.pexels.com/photos/37728/pexels-photo-37728.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+/* Style the header */
+.header {
+    padding: 10px;
+    text-align: center;
+    font-family: Bahnschrift;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+}
+
+.form {
+    background-color: #f2f2f2;
+    opacity: 0.8;
+    padding: 10px;
+}
+
+
+/* input box*/
+
+.input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-family: Bahnschrift;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Style the cancel & submit button */
+.nextstep a {
+    background-color: #333;
+    color: white;
+    display: inline-block;;
+    text-align: center;
+    font-family: Bahnschrift;
+    padding: 5px;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 12px;
+    margin: 2px 1px;
+}
+
+/* Style the createU button */
+.createU a {
+    background-color: #333; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: Bahnschrift;
+    text-decoration: none;
+    border: 3px solid white;
+    border-radius: 12px;
+    margin: 4px 2px;
+}
+
+/* Change color on hover */
+.createU a:hover {
+    background-color: grey;
+    color: white;
+}
+
+input[value], input[value], input[value] {
+    background-color: #333;
+    color: white;
+    padding: 8px 4px;
+    text-decoration: none;
+    margin: 5px 1px;
+}
+
+.nextstep a {
+    background-color: #333;
+    color: white;
+    display: inline-block;;
+    text-align: center;
+    padding: 5px;
+    font-family: Bahnschrift;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 12px;
+    margin: 2px 1px;
+}
+
+
+.box{
+    margin-top: 80px;
+    background-color: #f2f2f2;
+    opacity: 0.8;
+    padding: 100px;
+    text-align:center;
+}
