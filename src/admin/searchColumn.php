@@ -39,7 +39,7 @@ foreach ($tables as $table) {
     <? foreach($columns as $column):?>
         <?php echo $column; ?>
         <input name="selectedColumns[]" type="checkbox" value="<?php echo $column; ?>">
-        </br>
+        <br>
     <?php endforeach; ?>
     <?php foreach($tables as $t): ?>
         <input type="hidden" id="tables" name="tables[]" value="<?php echo $t; ?>" />

@@ -44,6 +44,9 @@ if (count($tables) > 1){
             }
         }
     }
+    if (isset($_POST['orderBy'])){
+        $sql = $sql." ORDER BY ".$_POST['orderBy'];
+    }
 } else {
     for ($i = 0; $i < count($selectedColumns); $i++) {
         $col = explode(".",$selectedColumns[$i])[1];
@@ -65,6 +68,9 @@ if (count($tables) > 1){
                 $sql = $sql.explode(".", $queryColumns[$i])[1]." ".$operators[$i]." ".$cond[$i];
             }
         }
+    }
+    if (isset($_POST['orderBy'])){
+        $sql = $sql." ORDER BY ".$_POST['orderBy'];
     }
 }
 

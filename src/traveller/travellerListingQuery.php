@@ -6,9 +6,7 @@
 <body>
 <br>
 Here are the results!
-</br>
-</body>
-</html>
+<br>
 <?php
 include '../connect.php';
 include '../display.php';
@@ -31,31 +29,33 @@ $connection = OpenCon();
 $sql = '';
 if ($zone){
     $sql = "SELECT l.address, l.rating, l.price 
-    FROM  listing l
-    WHERE l.price <= $budget AND l.capacity >= $noBedroom 
-    AND l.zone LIKE '$zone' AND l.parking = '$parking' AND l.active = 1";
+    FROM  Listing l, PropertyAgent p
+    WHERE p.Username = l.Username AND p.zone = '$zone' AND 
+          l.price <= $budget AND l.parking = '$parking' AND l.active = 1";
 } else {
     $sql = "SELECT l.address, l.rating, l.price 
-    FROM  listing l
-    WHERE l.price <= $budget AND l.capacity >= $noBedroom  AND l.parking = '$parking' AND l.active = 1";
+    FROM  Listing l
+    WHERE l.price <= $budget AND l.parking = '$parking' AND l.active = 1";
 }
 
 displayQueryResults($connection, $sql);
 ?>
-<html lang="en">
-<body>
-<br action="travellerRenting.php" method="post">
+<form action="travellerRenting.php" method="post">
     <br>
     <label for="address"> Which address would you like to rent?</label>
     <input type="text" id="address" name="address" placeholder="please copy and paste from above">
-    </br>
     <br>
     <label for="rentalDate"> When would you like to rent?</label>
     <input type="text" id="rentalDate" name="rentalDate" placeholder="YYYY-MM-DD">
-    </br>
+    <br>
     <label for="duration">How long would you like to stay for?</label>
+    <br>
     <input type="number" id="duration" name="duration" value="1" />
-    <input type="submit" value="Make booking!"
+    <br>
+    <input type="hidden" name="username" value="<?php echo $username; ?>"
+    <input type="submit" value="Make booking!"/>
 </form>
+<br>
+<input type="button" value="Logout" onclick="location.href='main.html'"/>
 </body>
 </html>
