@@ -3,21 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Traveller Login</title>
+    <link rel="stylesheet" type="text/css" href="travellermain.css">
+    <style>
+
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+    </style>
+
 </head>
 <body>
-<h>Welcome to the traveller login page!</h>
+<h1>Hi Traveller, welcome back!</h1>
 <form action="main.php" method="post">
-<br>
-Please enter your login details below
-</br>
-<br>
-<label for="username">Username</label>
-<input id="username" name="username" type="text" placeholder="type your username here" required>
-</br>
-<label for="password">Password</label>
-<input id="password" name="password" type="text" placeholder="type your pass in here (case sensitive)">
-</br>
-<input type="submit" value="login">
+    <br>
+    Please enter your login details below
+    </br>
+    <br>
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" placeholder="Type your username here" required>
+    </br>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="text" placeholder="Type your password here in here (case sensitive)" required>
+    </br>
+    <button type="submit">Login</button>
 </form>
 </body>
 </html>

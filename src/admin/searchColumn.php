@@ -1,19 +1,18 @@
 <?php
-function getColumns($conn, $sql) {
-    $result = mysqli_query($conn, $sql) or die((mysqli_error($conn)));
-    CloseCon($conn);
-    return $result;
-}
-include '../connect.php';
-$tables = $_POST["table"];
+include 'retrieve.php';
+$sql = "SHOW TABLES";
 
-$connection = OpenCon();
-$sqlTemplate = "SHOW columns FROM ";
+if(!isset($_POST["tables"])){
+    echo 'No tables were selected, please select at least one table. Returning back';
+    header('Refresh: 3; Location: "main.html"');
+}
+
+$tables = $_POST["tables"];
 $columns = [];
+$sqlTemplate = "SHOW columns FROM ";
 foreach ($tables as $table) {
-    echo $table."\n";
     $sql = $sqlTemplate.$table.";";
-    $newColumns = getColumns($connection, $sql);
+    $newColumns = retrieve($connection, $sql);
     while ($row = mysqli_fetch_assoc($newColumns)) {
         $entry = $table.".".$row["Field"];
         array_push($columns, $entry);
@@ -29,16 +28,21 @@ foreach ($tables as $table) {
 <body>
 <form action="searchConditions.php" method="post">
     <br>
-    Which columns do you want to keep?
+    Which columns do you want to keep? CHOOSE AT LEAST ONE.
     </br>
     Please refer to the options listed below to make your choice.
     </br>
     <? foreach($columns as $column):?>
         <?php echo $column; ?>
-        <input id="<?php echo $column; ?>" name="columns[]" type="checkbox" value="<?php echo $column; ?>">
+        <input name="selectedColumns[]" type="checkbox" value="<?php echo $column; ?>">
         </br>
     <?php endforeach; ?>
-    <input type="hidden" id="tables" name="tables" value="<?php echo $tables ?>"
+    <?php foreach($tables as $t): ?>
+        <input type="hidden" id="tables" name="tables[]" value="<?php echo $t; ?>" />
+    <?php endforeach; ?>
+    <?php foreach($columns as $c): ?>
+        <input type="hidden" id="columns" name="columns[]" value="<?php echo $c; ?>" />
+    <?php endforeach; ?>
     <input type="submit" name="Search" value="Search" />
 </form>
 
