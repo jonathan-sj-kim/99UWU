@@ -2,19 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<title>Add user page</title>
+    <title>Add user page</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <style>
+        /* Style the createU button */
+        .createU a {
+            background-color: #333; /* Green */
+            border: none;
+            color: white;
+            float: center;
+            display: inline-block;;
+            text-align: center;
+            padding: 20px;
+            text-decoration: none;
+            border: 3px solid white
+            border-radius: 12px;
+            margin: 4px 2px;
+        }
+
+        /* Change color on hover */
+        .createU a:hover {
+            background-color: grey;
+            color: white;
+        }
+
+        .box{
+            margin-top: 80px;
+            background-color: #f2f2f2;
+            opacity: 0.8;
+            padding: 100px;
+            text-align:center;
+        }
+
+
+    </style>
+
 </head>
 <body>
-Welcome to UWU rentals!
-<br>
-What kind of user do you wish to register as?
+<div class="box">
+    <h1>
+        Welcome to UWU rentals! </h1>
+    <p>What kind of user do you wish to register as? <p>
 
-    <input name="agent_btn" type = "button"
-           value = "Agent"
-           onclick="window.location.href = 'createAgent.html';" />
-
-    <input name="traveller_btn" type = "button"
-           value = "Traveller"
-           onclick="window.location.href = 'createTraveller.html';" />
+    <div class="createU">
+        <a href = "createAgent.html">Agent</a>
+        <a href="createTraveller.html">Traveller</a>
+    </div>
+</div>
 </body>
 </html>

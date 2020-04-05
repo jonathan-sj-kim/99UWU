@@ -1,19 +1,5 @@
 <?php
-function createAccount($conn, $sql, $username)
-{
-    $result = mysqli_query($conn, $sql);
-    if (!$result) {
-        header('Location: ../../html/failedLogin.html');
-    }
-    $rows = mysqli_fetch_assoc($result);
-    $name = array_values($rows)[0];
-    if ($name) {
-        header('Location: welcome.php?name='.urlencode($name).'&username='.urlencode($username));
-    } else {
-        header('Location: ../main/failedLogin.html');
-    }
-    CloseCon($conn);
-}
+
 include "../connect.php";
 openCon();
 
