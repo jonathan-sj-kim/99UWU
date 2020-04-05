@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Agent Account</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="createmain.css">
 
 </head>
 <div class="header">
@@ -35,7 +35,7 @@
         <input id="Housekeeping" name="Housekeeping" type="checkbox" value="Housekeeping">
         </br>
 
-        
+
         <div class="nextstep">
             <a href = "../../src">Cancel</a>
             <a href="../agent/main.php">Finish</a>

@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UWU Rentals</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+<body>
+
 <?php
 /**
  * Created by IntelliJ IDEA.
@@ -7,14 +17,13 @@
  */
 
 $conn = NULL;
-$success = TRUE;
 
 if (isset($_POST['reset'])) {
     handlePOSTRequest();
 }
 
 function handlePOSTRequest(){
-    global $conn;
+    global $conn, $message;
 
     include "connect.php";
     $conn = OpenCon();
@@ -22,23 +31,25 @@ function handlePOSTRequest(){
     if ($conn) {
         if (array_key_exists('resetTablesRequest', $_POST)) {
             handleResetRequest();
-        } else echo "Was not able to reset";
-    } else echo "Was not able to connect";
+        } else $message = "UWU was not able to reset :(";
+    } else $message = "UWU Was not able to connect :(";
 
 }
 
 function handleResetRequest()
 {
-    echo "<br> Resetting the database: 99UWU <br>";
+    global $message;
     drop();
     create();
     constrain();
-    header("Location: index.html");
+
+    $message = $message."UWU Bet it Was";
+    //header("Location: index.html");
 }
 
 function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
 
-    global $conn, $success;
+    global $conn, $message;
 
     if (mysqli_connect_errno()) {
         printf("Connect failed: %s\n", mysqli_connect_error());
@@ -47,10 +58,9 @@ function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL com
     $statement = mysqli_query($conn, $cmdstr);
 
     if (!$statement) {
-        echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+        $message = "<br>Cannot parse the following command: " . $cmdstr . "<br>";
         $e = mysqli_error($conn); // For OCIParse errors pass the connection handle
-        echo htmlentities($e);
-        $success = False;
+        $message = $message."\n".htmlentities($e);
     }
 
     return $statement;
@@ -496,3 +506,32 @@ function constrain(){
     executePlainSQL("ALTER TABLE `Traveller`
         ADD CONSTRAINT `Traveller_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 }
+?>
+
+
+<div class="header">
+    <h1>Database 99UWU is resetting</h1>
+
+    <h3> But was that reset successful?</h3>
+
+
+    <div class="topnav">
+
+        <p style="font-size:15px; font-color: green;"><?php
+            global $message;
+            echo $message; ?>
+        </p>
+    </div>
+
+
+
+    <div class="create">
+        <a href="../src">Go Back Home</a>
+    </div>
+
+
+
+</div>
+
+</body>
+</html>
