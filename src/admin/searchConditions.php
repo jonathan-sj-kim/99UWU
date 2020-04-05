@@ -14,10 +14,13 @@ $queryColumns = [];
 if (isset($_POST['queryColumns'])) {
     $queryColumns = $_POST['queryColumns'];
 }
-$count = 1;
+$count = 0;
 if (isset($_POST["submit"]) AND $_POST["submit"] == "Add") {
-    echo count($_POST['queryColumns']);
-    $count = count($_POST["queryColumns"]) + 1;
+    if(isset($_POST["queryColumns"])) {
+        $count = count($_POST["queryColumns"]) + 1;
+    } else {
+        $count = 1;
+    }
 } else if (isset($_POST['submit']) AND $_POST["submit"] == "Done") {
     session_start();
     $_SESSION['adminQuery'] = $_POST;
@@ -40,6 +43,7 @@ Click on done if you do not want to impose any conditions on this search or if y
             Condition <?php echo $i + 1; ?>
             <?php if (count($queryColumns) > $i) { ?>
                 <select id="queryColumns" name="queryColumns[]">
+                    <option disabled selected value> -- select an option -- </option>
                     <?php for ($c = 0; $c < count($columns); $c++) { ?>
                         <option value="<?php echo $columns[$c]; ?>"
                             <?php if ($queryColumns[$i] == $columns[$c]) { ?>
@@ -50,7 +54,8 @@ Click on done if you do not want to impose any conditions on this search or if y
                     <?php } ?>
                 </select>
             <?php } else { ?>
-                <select id="queryColumn" name="queryColumns[]">
+                <select id="queryColumn" name="queryColumns[] required">
+                    <option disabled selected value> -- select an option -- </option>
                     <?php for ($c = 0; $c < count($columns); $c++) { ?>
                         <option value="<?php echo $columns[$c]; ?>">
                             <?php echo $columns[$c]; ?>
@@ -58,33 +63,24 @@ Click on done if you do not want to impose any conditions on this search or if y
                     <?php } ?>
                 </select>
             <?php } ?>
-            <select id="operator" name="operators[]" value="operators">
-                <option value="=">
-                    =
-                </option>
-                <option value="<">
-                    <
-                </option>
-                <option value=">">
-                    >
-                </option>
-                <option value="=<">
-                    =<
-                </option>
-                <option value="=>">
-                    =>
-                </option>
-                <option value="!="> !=</option>
-                <option value="LIKE"> LIKE</option>
+            <select id="operator" name="operators[]" value="operators" required>
+                <option disabled selected value> -- select an option -- </option>
+                <option value="="> = </option>
+                <option value="<"> < </option>
+                <option value=">"> > </option>
+                <option value="<="> <= </option>
+                <option value=">="> >= </option>
+                <option value="!="> != </option>
+                <option value="LIKE"> LIKE </option>
             </select>
             <label for="cond">to</label>
             <?php if (count($cond) > $i) { ?>
                 <input type="text" name="cond[]" id="cond"
                        value='<?php echo $cond[$i]; ?>'
-                       placeholder="for strings please use double quotes">
+                       placeholder="for strings please use double quotes" required>
             <?php } else { ?>
                 <input type="text" name="cond[]" id="cond"
-                       placeholder="for strings please use double quotes">
+                       placeholder="for strings please use double quotes" required>
             <? } ?>
             <br>
         </p>
