@@ -19,6 +19,6 @@ echo 'Logging in...';
 $username = $_POST['username'];
 $password = $_POST['password'];
 $connection = OpenCon();
-$sql = "SELECT u.Name FROM traveller u WHERE u.Username = '$username' AND u.Password = '$password'";
+$sql = "SELECT u.Name FROM traveller u WHERE u.Username = '$username' AND u.Password = '$password';";
 login($connection, $sql, $username);
 CloseCon($connection);

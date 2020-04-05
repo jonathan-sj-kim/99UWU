@@ -36,8 +36,17 @@ for ($i = 0; $i < count($cond); $i++){
     }
 }
 echo $sql;
-;unset($_SESSION['adminQuery']);
+unset($_SESSION['adminQuery']);
 include "../display.php";
 include "../connect.php";
 $conn = OpenCon();
 displayQueryResults($conn, $sql);
+?>
+<html>
+<title>Search</title>
+<body>
+Would you like to make this an aggregated search?
+</br>
+
+</body>
+</html>
