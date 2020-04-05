@@ -1,18 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page for Traveller</title>
+    <link rel="stylesheet" type="text/css" href="travellermain.css">
+
+</head>
 <?php
 function login($conn, $sql, $username)
 {
     $result = mysqli_query($conn, $sql);
+    print_r($result);
     if (!$result) {
-        header('Location: ../../html/failedLogin.html');
-    }
-    $rows = mysqli_fetch_assoc($result);
-    //if(1 === count($rows));
-    $name = array_values($rows)[0];
-    if ($name) {
-        header('Location: welcome.php?name='.urlencode($name).'&username='.urlencode($username));
-    } else {
         header('Location: ../main/failedLogin.html');
     }
+    $rows = mysqli_fetch_assoc($result);
+    $name = array_values($rows);
+
+    if (count($name) == 0) {
+        header('Location: ../main/failedLogin.html');
+    } else {
+        header('Location: welcome.php?name='.urlencode($name[0]).'&username='.urlencode($username));
+    }
+
     CloseCon($conn);
 }
 include '../connect.php';
@@ -20,6 +30,6 @@ echo 'Logging in...';
 $username = $_POST['username'];
 $password = $_POST['password'];
 $connection = OpenCon();
-$sql = "SELECT u.Name FROM traveller u WHERE u.Username = '$username' AND u.Password = '$password'";
+$sql = "SELECT u.Name FROM Traveller t, Users u WHERE t.Username = u.Username AND u.Username = '$username' AND u.Password = '$password';";
 login($connection, $sql, $username);
-CloseCon($connection);
+?>

@@ -3,7 +3,7 @@ function OpenCon()
 {
     $dbhost = "localhost";
     $dbuser ="root";
-    $dbpass ="";
+    $dbpass ="cpsc304";
     $db = "99UWU";
     //$connection_string = "dbhost.students.cs.ubc.ca:1522/stu";
     //$ociuser ="ora_jonkim99";

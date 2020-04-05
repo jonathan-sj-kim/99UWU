@@ -30,6 +30,8 @@ foreach ($tables as $table) {
     <br>
     Which columns do you want to keep? CHOOSE AT LEAST ONE.
     </br>
+    You will be able to choose a group by option later on.
+    </br>
     Please refer to the options listed below to make your choice.
     </br>
     <? foreach($columns as $column):?>
