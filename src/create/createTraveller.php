@@ -9,7 +9,7 @@
 <div class="header">
     <body>
     <h1>Welcome to create your traveller account!</h1>
-    <form action="createUser.php" method="post">
+    <form action="createTraveller.php" method="post">
         <br>
         Please provide the following information to create an account.
         </br>
@@ -31,10 +31,89 @@
         <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
         <div class="nextstep">
-            <a href = "createUser.html">Cancel</a>
-            <a href="createTraveller.php">Finish</a>
+            <a href = "../../src">Cancel</a>
+            <button name="create" type="submit">Create</button>
         </div>
+        <?php
+        global $message;
+        echo $message;
+        ?>
+<?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: jonat
+ * Date: 2020-04-03
+ * Time: 8:24 PM
+ */
+
+$conn = NULL;
+$global = NULL;
+
+if (isset($_POST['create'])) {
+    handlePOSTRequest();
+}
+
+function handlePOSTRequest(){
+    global $conn, $message;
+
+    include "../connect.php";
+    $conn = OpenCon();
+
+
+    if ($conn) {
+        handleCreateRequest();
+    } else $message = "UWU Was not able to connect :(";
+
+    header('Location: ../create/success.php/message='.urlencode($message));
+
+}
+
+function handleCreateRequest()
+{
+    global $message, $conn;
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $name = $_POST['name'];
+    $usersql = "INSERT INTO Users (username, password, name)
+VALUES ('$username', '$password', '$name')";
+    $travellersql = "INSERT INTO Traveller (username)
+VALUES ('$username')";
+
+    if(!executePlainSQL($usersql)){
+        $message = "Could not create, please try again";
+    }else if(!executePlainSQL($travellersql)){
+        $message = $message."Very weird error, try again";
+    } else $message = $message."Successful Insert";
+
+    CloseCon($conn);
+}
+
+function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+
+    global $conn, $message;
+
+    if (mysqli_connect_errno()) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+    }
+    $statement = mysqli_query($conn, $cmdstr);
+
+    if (!$statement) {
+        $message = message."<br>Cannot parse the following command: " . $cmdstr . "<br>";
+        $e = mysqli_error($conn); // For OCIParse errors pass the connection handle
+        $message = $message."\n".htmlentities($e);
+    }
+
+    return $statement;
+}
+
+?>
+
+
+
     </form>
     </body>
 </div>
+
 </html>
