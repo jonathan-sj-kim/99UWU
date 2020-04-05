@@ -636,102 +636,102 @@ ALTER TABLE `Users`
 -- Constraints for table `Bike`
 --
 ALTER TABLE `Bike`
-  ADD CONSTRAINT `Bike_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `TransportationAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `Bike_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `TransportationAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `BookedListing`
 --
 ALTER TABLE `BookedListing`
-  ADD CONSTRAINT `BookedListing_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `BookedListing_ibfk_2` FOREIGN KEY (`Address`) REFERENCES `Listing` (`Address`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `BookedListing_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `BookedListing_ibfk_2` FOREIGN KEY (`Address`) REFERENCES `Listing` (`Address`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `Car`
 --
 ALTER TABLE `Car`
-  ADD CONSTRAINT `Car_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `TransportationAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `Car_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `TransportationAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `Friend`
 --
 ALTER TABLE `Friend`
-  ADD CONSTRAINT `Friend_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Friend_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `Housekeeper`
 --
 ALTER TABLE `Housekeeper`
-  ADD CONSTRAINT `Housekeeper_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `HousekeepingAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `Housekeeper_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `HousekeepingAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `HousekeepingAgent`
 --
 ALTER TABLE `HousekeepingAgent`
-  ADD CONSTRAINT `HousekeepingAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `HousekeepingAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `Listing`
 --
 ALTER TABLE `Listing`
-  ADD CONSTRAINT `Listing_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `PropertyAgent` (`Username`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `Listing_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `PropertyAgent` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `LoanedBike`
 --
 ALTER TABLE `LoanedBike`
-  ADD CONSTRAINT `LoanedBike_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `Bike` (`BID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `LoanedBike_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `LoanedBike_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `Bike` (`BID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `LoanedBike_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `OrderedHousekeeper`
 --
 ALTER TABLE `OrderedHousekeeper`
-  ADD CONSTRAINT `OrderedHousekeeper_ibfk_1` FOREIGN KEY (`HID`) REFERENCES `Housekeeper` (`HID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `OrderedHousekeeper_ibfk_2` FOREIGN KEY (`Address`,`Username`) REFERENCES `BookedListing` (`Address`, `Username`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `OrderedHousekeeper_ibfk_1` FOREIGN KEY (`HID`) REFERENCES `Housekeeper` (`HID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `OrderedHousekeeper_ibfk_2` FOREIGN KEY (`Address`,`Username`) REFERENCES `BookedListing` (`Address`, `Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `PropertyAgent`
 --
 ALTER TABLE `PropertyAgent`
-  ADD CONSTRAINT `PropertyAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `PropertyAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `RentedCar`
 --
 ALTER TABLE `RentedCar`
-  ADD CONSTRAINT `RentedCar_ibfk_1` FOREIGN KEY (`PlateNumber`) REFERENCES `Car` (`PlateNumber`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `RentedCar_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `RentedCar_ibfk_1` FOREIGN KEY (`PlateNumber`) REFERENCES `Car` (`PlateNumber`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `RentedCar_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `TakenTour`
 --
 ALTER TABLE `TakenTour`
-  ADD CONSTRAINT `TakenTour_ibfk_1` FOREIGN KEY (`Name`) REFERENCES `Tour` (`Name`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `TakenTour_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `TakenTour_ibfk_1` FOREIGN KEY (`Name`) REFERENCES `Tour` (`Name`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `TakenTour_ibfk_2` FOREIGN KEY (`Username`) REFERENCES `Traveller` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `Tour`
 --
 ALTER TABLE `Tour`
-  ADD CONSTRAINT `Tour_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `TourismAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `Tour_ibfk_1` FOREIGN KEY (`Zone`) REFERENCES `TourismAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `TourismAgent`
 --
 ALTER TABLE `TourismAgent`
-  ADD CONSTRAINT `TourismAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `TourismAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `TransportationAgent`
 --
 ALTER TABLE `TransportationAgent`
-  ADD CONSTRAINT `TransportationAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `TransportationAgent_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `Traveller`
 --
 ALTER TABLE `Traveller`
-  ADD CONSTRAINT `Traveller_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Traveller_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 

@@ -6,6 +6,7 @@ function login($conn, $sql, $username)
         header('Location: ../../html/failedLogin.html');
     }
     $rows = mysqli_fetch_assoc($result);
+    //if(1 === count($rows));
     $name = array_values($rows)[0];
     if ($name) {
         header('Location: welcome.php?name='.urlencode($name).'&username='.urlencode($username));
