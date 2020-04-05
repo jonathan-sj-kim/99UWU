@@ -29,12 +29,11 @@ function handlePOSTRequest(){
 
 function handleResetRequest()
 {
-    global $conn;
-    // Create new table
     echo "<br> Resetting the database: 99UWU <br>";
     drop();
     create();
     constrain();
+    header("Location: index.html");
 }
 
 function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
@@ -445,55 +444,55 @@ function constrain(){
         ADD PRIMARY KEY(`Username`)");
 
     executePlainSQL("ALTER TABLE `Bike`
-        ADD CONSTRAINT `Bike_ibfk_1` FOREIGN KEY(`Zone`) REFERENCES `TransportationAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE");
+        ADD CONSTRAINT `Bike_ibfk_1` FOREIGN KEY(`Zone`) REFERENCES `TransportationAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `BookedListing`
-        ADD CONSTRAINT `BookedListing_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE,
-        ADD CONSTRAINT `BookedListing_ibfk_2` FOREIGN KEY(`Address`) REFERENCES `Listing` (`Address`) ON DELETE CASCADE ON UPDATE NO ACTION");
+        ADD CONSTRAINT `BookedListing_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Traveller` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        ADD CONSTRAINT `BookedListing_ibfk_2` FOREIGN KEY(`Address`) REFERENCES `Listing` (`Address`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `Car`
-        ADD CONSTRAINT `Car_ibfk_1` FOREIGN KEY(`Zone`) REFERENCES `TransportationAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE");
+        ADD CONSTRAINT `Car_ibfk_1` FOREIGN KEY(`Zone`) REFERENCES `TransportationAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `Friend`
-        ADD CONSTRAINT `Friend_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE");
+        ADD CONSTRAINT `Friend_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Traveller` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `Housekeeper`
-        ADD CONSTRAINT `Housekeeper_ibfk_1` FOREIGN KEY(`Zone`) REFERENCES `HousekeepingAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE");
+        ADD CONSTRAINT `Housekeeper_ibfk_1` FOREIGN KEY(`Zone`) REFERENCES `HousekeepingAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `HousekeepingAgent`
-        ADD CONSTRAINT `HousekeepingAgent_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE");
+        ADD CONSTRAINT `HousekeepingAgent_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `Listing`
-        ADD CONSTRAINT `Listing_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `PropertyAgent` (`Username`) ON DELETE NO ACTION ON UPDATE CASCADE");
+        ADD CONSTRAINT `Listing_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `PropertyAgent` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `LoanedBike`
-        ADD CONSTRAINT `LoanedBike_ibfk_1` FOREIGN KEY(`BID`) REFERENCES `Bike` (`BID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-        ADD CONSTRAINT `LoanedBike_ibfk_2` FOREIGN KEY(`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE");
+        ADD CONSTRAINT `LoanedBike_ibfk_1` FOREIGN KEY(`BID`) REFERENCES `Bike` (`BID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        ADD CONSTRAINT `LoanedBike_ibfk_2` FOREIGN KEY(`Username`) REFERENCES `Traveller` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `OrderedHousekeeper`
-        ADD CONSTRAINT `OrderedHousekeeper_ibfk_1` FOREIGN KEY(`HID`) REFERENCES `Housekeeper` (`HID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-        ADD CONSTRAINT `OrderedHousekeeper_ibfk_2` FOREIGN KEY(`Address`, `Username`) REFERENCES `BookedListing` (`Address`, `Username`) ON DELETE NO ACTION ON UPDATE CASCADE");
+        ADD CONSTRAINT `OrderedHousekeeper_ibfk_1` FOREIGN KEY(`HID`) REFERENCES `Housekeeper` (`HID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        ADD CONSTRAINT `OrderedHousekeeper_ibfk_2` FOREIGN KEY(`Address`, `Username`) REFERENCES `BookedListing` (`Address`, `Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `PropertyAgent`
-        ADD CONSTRAINT `PropertyAgent_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE");
+        ADD CONSTRAINT `PropertyAgent_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `RentedCar`
-        ADD CONSTRAINT `RentedCar_ibfk_1` FOREIGN KEY(`PlateNumber`) REFERENCES `Car` (`PlateNumber`) ON DELETE NO ACTION ON UPDATE CASCADE,
-        ADD CONSTRAINT `RentedCar_ibfk_2` FOREIGN KEY(`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE");
+        ADD CONSTRAINT `RentedCar_ibfk_1` FOREIGN KEY(`PlateNumber`) REFERENCES `Car` (`PlateNumber`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        ADD CONSTRAINT `RentedCar_ibfk_2` FOREIGN KEY(`Username`) REFERENCES `Traveller` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `TakenTour`
-        ADD CONSTRAINT `TakenTour_ibfk_1` FOREIGN KEY(`Name`) REFERENCES `Tour` (`Name`) ON DELETE NO ACTION ON UPDATE CASCADE,
-        ADD CONSTRAINT `TakenTour_ibfk_2` FOREIGN KEY(`Username`) REFERENCES `Traveller` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE");
+        ADD CONSTRAINT `TakenTour_ibfk_1` FOREIGN KEY(`Name`) REFERENCES `Tour` (`Name`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        ADD CONSTRAINT `TakenTour_ibfk_2` FOREIGN KEY(`Username`) REFERENCES `Traveller` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `Tour`
-        ADD CONSTRAINT `Tour_ibfk_1` FOREIGN KEY(`Zone`) REFERENCES `TourismAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE CASCADE");
+        ADD CONSTRAINT `Tour_ibfk_1` FOREIGN KEY(`Zone`) REFERENCES `TourismAgent` (`Zone`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `TourismAgent`
-        ADD CONSTRAINT `TourismAgent_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE");
+        ADD CONSTRAINT `TourismAgent_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `TransportationAgent`
-        ADD CONSTRAINT `TransportationAgent_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE");
+        ADD CONSTRAINT `TransportationAgent_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 
     executePlainSQL("ALTER TABLE `Traveller`
-        ADD CONSTRAINT `Traveller_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE");
+        ADD CONSTRAINT `Traveller_ibfk_1` FOREIGN KEY(`Username`) REFERENCES `Users` (`Username`) ON DELETE NO ACTION ON UPDATE NO ACTION");
 }

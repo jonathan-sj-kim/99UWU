@@ -21,15 +21,18 @@
             background-color: #333;
             opacity: 0.8;
             padding: 10px;
+            font-family: Bahnschrift;
             text-align: left;
             color: white;
         }
 
         .footer {
             padding: 10px;
-            color: #f2f2f2;
-            font-size:15px;
-            position: bottom;
+            color: white;
+            font-size:18px;
+            font-family: Bahnschrift;
+            background-position: center;
+            text-align: center;
         }
 
         /* Style the top navigation bar */
@@ -43,6 +46,7 @@
             color: #f2f2f2;
             text-align: center;
             padding: 14px 32px;
+            font-family: Bahnschrift;
             text-decoration: none;
             font-size: 18px;
             transition-duration: 0.4s;
@@ -61,6 +65,7 @@
             display: block;
             color: #f2f2f2;
             text-align: center;
+            font-family: Bahnschrift;
             padding: 12px 14px;
             text-decoration: none;
             border: 2px solid #e7e7e7
@@ -89,7 +94,7 @@
 
     <div class="topnav">
 
-        <a href = "agent/main.html">Agent</a>
+        <a href = "agent/main.php">Agent</a>
         <a href="traveller/main.html">Traveller</a>
         <a href="admin/main.html">Admin</a>
     </div>
@@ -104,18 +109,19 @@
     </div>
 
 </div>
-<footer>
+
+<div class="footer">
     Created by: Gallant Tang, Jon Kim, Rene Huang
     For: CPSC304
 
     (If this is your first time visiting the site, you must press the reset button!)
 
-    <form method="POST" action="reset.php">
+    <form class  method="POST" action="reset.php">
         <!-- if you want another page to load after the button is clicked, you have to specify that page in the action parameter -->
         <input type="hidden" id="resetTablesRequest" name="resetTablesRequest">
         <p><input type="submit" value="Reset" name="reset"></p>
     </form>
-</footer>
+</div>
 
 </body>
 </html>
