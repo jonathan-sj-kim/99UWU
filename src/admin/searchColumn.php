@@ -29,15 +29,15 @@ foreach ($tables as $table) {
 <form action="searchConditions.php" method="post">
     <br>
     Which columns do you want to keep? CHOOSE AT LEAST ONE FROM EACH TABLE OR RESULTS WILL NOT SHOW.
-    </br>
+    <br>
     You will be able to choose a group by option later on.
-    </br>
+    <br>
     Please refer to the options listed below to make your choice.
-    </br>
-    <? foreach($columns as $column):?>
-        <?php echo $column; ?>
+    <br>
+    <? foreach($columns as $column):
+        echo $column; ?>
         <input name="selectedColumns[]" type="checkbox" value="<?php echo $column; ?>">
-        </br>
+        <br>
     <?php endforeach; ?>
     <?php foreach($tables as $t): ?>
         <input type="hidden" id="tables" name="tables[]" value="<?php echo $t; ?>" />

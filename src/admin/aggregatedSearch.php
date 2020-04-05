@@ -27,7 +27,7 @@ Or would you like to find the agent that manages all the listings in zone
         <option value="North Vancouver"> North Vancouver </option>
         <option value="UBC"> UBC </option>
         <option value="Kitsilano"> Kitsilano </option>
-        <option value="Kerrisdale"> UBC </option>
+        <option value="Kerrisdale"> Kerrisdale </option>
         <option value="Downtown"> Downtown </option>
     </select>
     <input type="submit" value="Find" />

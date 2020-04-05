@@ -95,9 +95,13 @@ Click on done if you do not want to impose any conditions on this search or if y
         <?php foreach ($selectedColumns as $sc): ?>
             <input type="hidden" id="selectedColumns" name="selectedColumns[]" value="<?php echo $sc; ?>"/>
         <?php endforeach; ?>
+
         <select name="orderBy">
+            <option disabled selected value> -- select an option -- </option>
             <?php foreach ($selectedColumns as $sc): ?>
                 <option value="selectedColumns[]" value="<?php echo $sc; ?>"/>
+                <?php echo $sc; ?>
+                </option>
             <?php endforeach; ?>
         </select>
         <input type="submit" name="submit" value="Add"/>
