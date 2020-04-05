@@ -1,13 +1,20 @@
+
 body {
-    background-image: url(https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+    background-image: url("https://images.pexels.com/photos/408503/pexels-photo-408503.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
 }
+
+form {background-color: #f2f2f2;
+    opacity: 0.8;
+    padding: 10px;
+}
+
 /* Style the header */
-.header {
+sectionbody {
     margin-top: 80px;
-    background-color: #333;
+    background-color: #f2f2f2;
     opacity: 0.8;
     padding: 10px;
     text-align: left;
@@ -17,53 +24,19 @@ body {
     left-margin: 30px;
 }
 
-.footer {
-    padding: 10px;
+button {
+    background-color: #333;
     color: #f2f2f2;
-    font-size:15px;
-}
-
-/* Style the top navigation bar */
-.topnav {
-    overflow: hidden;
-}
-
-/* Style the topnav links */
-.topnav a {
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 32px;
-    text-decoration: none;
-    font-size: 18px;
-    transition-duration: 0.4s;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
     cursor: pointer;
+    width: 100%;
 }
 
-/* Change color on hover */
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
+button:hover {
+    opacity: 0.8;
 }
-
-/* Style the create button */
-.create a {
-    float: right;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 12px 14px;
-    text-decoration: none;
-    border: 2px solid #e7e7e7
-}
-
-/* Change color on hover */
-.create a:hover {
-    background-color: #ddd;
-    color: blue;
-}
-
-/* input box*/
 
 input[type=text], input[type=password] {
     width: 100%;
@@ -76,13 +49,11 @@ input[type=text], input[type=password] {
 
 /* Style the cancel & submit button */
 .nextstep a {
-    background-color: #333;
-    color: white;
-    float: center;
-    display: inline-block;;
+    color: #333;
+    display: inline-block;
     text-align: center;
     padding: 5px;
     text-decoration: none;
-    border: 2px solid white;
+    border: 2px solid #333;
     margin: 20px 1px;
 }
