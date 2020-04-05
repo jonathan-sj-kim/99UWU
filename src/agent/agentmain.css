@@ -5,20 +5,30 @@
     background-position: center;
 }
 /* Style the header */
-.jon1 {
-    margin-top: 20px;
+.header {
+    margin-top: 80px;
+    background-color: #333;
+    opacity: 0.8;
+    padding: 10px;
     text-align: left;
     font-family: Bahnschrift;
-    font-size:35px;
     color: white;
     width: 45%;
     text-aligh:center;
     left-margin: 30px;
 }
 
+
+.form {
+    background-color: #f2f2f2;
+    opacity: 0.8;
+    padding: 10px;
+}
+
 .footer {
     padding: 10px;
     color: #f2f2f2;
+    font-family: Bahnschrift;
     font-size:15px;
 }
 
@@ -32,8 +42,8 @@
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 32px;
     font-family: Bahnschrift;
+    padding: 14px 32px;
     text-decoration: none;
     font-size: 18px;
     transition-duration: 0.4s;
@@ -46,14 +56,13 @@
     color: black;
 }
 
-
 /* Style the create button */
 .create a {
     float: right;
     display: block;
     color: #f2f2f2;
-    font-family: Bahnschrift;
     text-align: center;
+    font-family: Bahnschrift;
     padding: 12px 14px;
     text-decoration: none;
     border: 2px solid #e7e7e7
@@ -71,41 +80,70 @@
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
+    font-family: Bahnschrift;
     display: inline-block;
     border: 1px solid #ccc;
-    font-family: Bahnschrift;
     box-sizing: border-box;
 }
-
 
 /* Style the cancel & submit button */
 .nextstep a {
     background-color: #333;
     color: white;
+    display: inline-block;;
     text-align: center;
     font-family: Bahnschrift;
     padding: 5px;
     text-decoration: none;
     border: 2px solid white;
-    margin: 20px 1px;
+    border-radius: 12px;
+    margin: 2px 1px;
 }
 
-
-.form {
-    background-color: #f2f2f2;
-    opacity: 0.8;
+/* Style the createU button */
+.createU a {
+    background-color: #333; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 20px;
     font-family: Bahnschrift;
-    padding: 10px;
+    text-decoration: none;
+    border: 3px solid white;
+    border-radius: 12px;
+    margin: 4px 2px;
 }
 
+.jon {
+    padding: 10px;
+    color: black;
+    font-size:35px;
+    font-family: Bahnschrift;
+    background-position: center;
+    text-align: center;
+}
 
+.jon2 {
+    padding: 10px;
+    color: black;
+    font-size:20px;
+    font-family: Bahnschrift;
+    background-position: center;
+    text-align: center;
+}
+
+/* Change color on hover */
+.createU a:hover {
+    background-color: grey;
+    color: white;
+}
 
 .button {
     background-color: #333;
     color: #f2f2f2;
     padding: 14px 20px;
-    margin: 8px 0;
     font-family: Bahnschrift;
+    margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -116,33 +154,24 @@
 }
 
 
-.jon {
-    padding: 10px;
-    color: black;
-    font-size:40px;
-    font-family: Bahnschrift;
-    background-position: center;
-    text-align: center;
-}
-
-
-.jon2 {
-    padding: 10px;
-    color: black;
-    font-size:15px;
-    font-family: Bahnschrift;
-    background-position: center;
-    text-align: center;
-}
-
-
-.header {
-    margin-top: 20px;
-    text-align: left;
-    font-family: Bahnschrift;
-    font-size:35px;
+.nextstep a {
+    background-color: #333;
     color: white;
-    width: 45%;
-    text-aligh:center;
-    left-margin: 30px;
+    display: inline-block;;
+    text-align: center;
+    padding: 5px;
+    font-family: Bahnschrift;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 12px;
+    margin: 2px 1px;
+}
+
+
+.box{
+    margin-top: 80px;
+    background-color: #f2f2f2;
+    opacity: 0.8;
+    padding: 100px;
+    text-align:center;
 }
