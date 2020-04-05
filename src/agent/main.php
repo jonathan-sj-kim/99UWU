@@ -3,72 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Agent Login</title>
-    <style>
+    <link rel="stylesheet" type="text/css" href="../agent/agentmain.css">
 
-        body {
-            background-image: url("https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-        }
-
-        form {
-            background-color: #f2f2f2;
-            opacity: 0.8;
-            padding: 10px;
-        }
-
-        input[type=text], input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #333;
-            color: #f2f2f2;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-
-        .nextstep a {
-            background-color: #333;
-            color: white;
-            display: inline-block;;
-            text-align: center;
-            padding: 5px;
-            text-decoration: none;
-            border: 2px solid white;
-            border-radius: 12px;
-            margin: 2px 1px;
-        }
-
-    </style>
 </head>
-<body>
+<body class = "body">
 <h1>Hello Agent, welcome back!</h1>
-<form action="../agent/main.php" method="post">
+<form class="form" action="../agent/main.php" method="post">
     <br>
     Please enter your login details below
     </br>
     <br>
     <label for="username">Username</label>
-    <input id="username" name="username" type="text" placeholder="type your username here" required>
+    <input class="input" id="username" name="username" type="text" placeholder="type your username here" required>
     </br>
     <label for="password">Password</label>
-    <input id="password" name="password" type="text" placeholder="type your pass in here (case sensitive)">
+    <input class="input" id="password" name="password" type="text" placeholder="type your pass in here (case sensitive)">
     </br>
-    <button name="login" type="submit">Login</button>
+    <button class="button" name="login" type="submit">Login</button>
     <div class="nextstep">
         <a href = "../../src">Cancel</a>
     </div>
@@ -92,7 +43,7 @@ function agentlogin($conn, $username, $toursql, $transql, $propsql, $houssql)
         if (0===mysqli_num_rows($tranresult)) {
             if (0===mysqli_num_rows($propresult)) {
                 if (0===mysqli_num_rows($housresult)) {
-                    header('Location: ../main/failedLogin.html');
+                    header('Location: ../create/failedLogin.html');
                 } else {
                     $name = mysqli_fetch_field_direct($housresult,0);
                     $type = "housekeeping/main.html";

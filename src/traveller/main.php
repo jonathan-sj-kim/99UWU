@@ -12,13 +12,13 @@ function login($conn, $sql, $username)
     $result = mysqli_query($conn, $sql);
     print_r($result);
     if (!$result) {
-        header('Location: ../main/failedLogin.html');
+        header('Location: ../create/failedLogin.html');
     }
     $rows = mysqli_fetch_assoc($result);
     $name = array_values($rows);
 
     if (count($name) == 0) {
-        header('Location: ../main/failedLogin.html');
+        header('Location: ../create/failedLogin.html');
     } else {
         header('Location: welcome.php?name='.urlencode($name[0]).'&username='.urlencode($username));
     }
