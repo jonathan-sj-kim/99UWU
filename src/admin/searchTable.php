@@ -1,13 +1,6 @@
 <?php
-function getTable($conn, $sql) {
-    $result = mysqli_query($conn, $sql) or die((mysqli_error($conn)));
-    CloseCon($conn);
-    return $result;
-}
-include '../connect.php';
-$connection = OpenCon();
 $sql = "SHOW TABLES";
-
+include 'retrieve.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,13 +15,12 @@ $sql = "SHOW TABLES";
     </br>
     Please refer to the options listed below to make your choice.
     </br>
-    <?php $tables = getTable($connection, $sql);
-    while ( $table = mysqli_fetch_array($tables) ){
+    <?php $tables = retrieve($connection, $sql);
+    while ( $table = mysqli_fetch_array($tables) ):
         echo $table[0]; ?>
-        <input id="<?php echo $table[0]; ?>" name="table[]" type="checkbox" value="<?php echo $table[0]; ?>">
+        <input id="<?php echo $table[0]; ?>" name="tables[]" type="checkbox" value="<?php echo $table[0]; ?>">
         </br>
-    }
-    <?php } ?>
+    <?php endwhile; ?>
     <input type="submit" name="Search" value="Search" />
 </form>
 
