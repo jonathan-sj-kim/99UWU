@@ -62,11 +62,10 @@ function agentlogin($conn, $username, $toursql, $transql, $propsql, $houssql)
     }
 
     if ($name) {
-        echo "lit shit";
         header('location: '.$type.'?name=' . urlencode($name) . '&username=' . urlencode($username));
     } else {
-        //header('Location: ../main/failedLogin.html');
-        echo "fail2";
+        header('Location: ../main/failedLogin.html');
+
     }
     CloseCon($conn);
 }
