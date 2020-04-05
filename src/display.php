@@ -25,5 +25,4 @@ cellpadding=\"0\"><tr align=\"center\" bgcolor=\"#CCCCCC\">";
         }
         echo "</table>";
     }
-    CloseCon($connection);
 }

@@ -80,17 +80,8 @@ displayQueryResults($conn, $sql);
 <html lang="en">
 <title>Search</title>
 <body>
-Would you like to make this an aggregated search?
 <br>
-<form action="aggregatedSearch.php" method="post">
-    <input type="hidden" value="<?php echo $sql; ?>" name="sql">
-    <input type="hidden" value="<?php echo $tables; ?>" name="tables">
-    <input type="hidden" value="<?php echo $queryColumns; ?>" name="queryColumns">
-    <input type="hidden" value="<?php echo $selectedColumns; ?>" name="selectedColumns">
-    <input type="submit" name="yes" value="yes">
-</form>
-<form action="main.html">
-    <input type="submit" value="No" />
-</form>
+To return to the main admin page
+<input type="submit" value="Home" onclick="window.location.href = 'main.html'"/>
 </body>
 </html>

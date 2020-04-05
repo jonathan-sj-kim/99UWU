@@ -21,9 +21,9 @@ if ($_POST['noBedrooms']){
     $noBedroom = $_POST['noBedrooms'];
 }
 $zone = $_POST['zone'];
-$parking = "F";
+$parking = 0;
 if (!empty($_POST['parking'])){
-    $parking = 'T';
+    $parking = 1;
 }
 
 $username = $_POST['username'];
@@ -33,11 +33,11 @@ if ($zone){
     $sql = "SELECT l.address, l.rating, l.price 
     FROM  listing l
     WHERE l.price <= $budget AND l.capacity >= $noBedroom 
-    AND l.zone LIKE '$zone' AND l.parking = '$parking' AND l.availability LIKE 'T'";
+    AND l.zone LIKE '$zone' AND l.parking = '$parking' AND l.active = 1";
 } else {
     $sql = "SELECT l.address, l.rating, l.price 
     FROM  listing l
-    WHERE l.price <= $budget AND l.capacity >= $noBedroom  AND l.parking = '$parking' AND l.availability LIKE 'T'";
+    WHERE l.price <= $budget AND l.capacity >= $noBedroom  AND l.parking = '$parking' AND l.active = 1";
 }
 
 displayQueryResults($connection, $sql);

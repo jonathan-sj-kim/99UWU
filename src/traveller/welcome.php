@@ -17,6 +17,7 @@
 
 
     <input name="username" type="hidden" id="hiddenUserName" value="<?php echo $_GET['username']; ?>" />
+    <input name="name" type="hidden" id="hiddenName" value="<?php echo $_GET['name']; ?>" />
     <input name="user-input" id="search-listing-btn" type="submit" value="Search for listings"/>
     <input name="user-input" id="booking-btn" type = "submit" value = "See booking history" />
 
