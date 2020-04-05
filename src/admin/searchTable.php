@@ -15,7 +15,7 @@ include 'retrieve.php';
     </br>
     Please refer to the options listed below to make your choice.
     </br>
-    <?php $tables = retrieve($connection, $sql);
+    <?php $tables = retrieve($sql);
     while ( $table = mysqli_fetch_array($tables) ):
         echo $table[0]; ?>
         <input id="<?php echo $table[0]; ?>" name="tables[]" type="checkbox" value="<?php echo $table[0]; ?>">

@@ -29,7 +29,7 @@ if (count($tables) > 1){
     }
     for ($i = 0; $i < count($tables); $i++) {
         if ($i == 0){
-            $sql = $sql.$tables[$i]." ".$tables[$i][0];
+            $sql = $sql.$tables[$i]." ".$tables[$i];
         }else {
             $sql = $sql.", ".$tables[$i]." ".$tables[$i];
         }

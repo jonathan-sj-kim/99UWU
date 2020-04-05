@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin starter</title>
+</head>
+<body>
 <?php
 include 'retrieve.php';
 $sql = "SHOW TABLES";
@@ -12,20 +19,13 @@ $columns = [];
 $sqlTemplate = "SHOW columns FROM ";
 foreach ($tables as $table) {
     $sql = $sqlTemplate.$table.";";
-    $newColumns = retrieve($connection, $sql);
+    $newColumns = retrieve($sql);
     while ($row = mysqli_fetch_assoc($newColumns)) {
         $entry = $table.".".$row["Field"];
         array_push($columns, $entry);
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin starter</title>
-</head>
-<body>
 <form action="searchConditions.php" method="post">
     <br>
     Which columns do you want to keep? CHOOSE AT LEAST ONE FROM EACH TABLE OR RESULTS WILL NOT SHOW.
