@@ -10,7 +10,6 @@
 function login($conn, $sql, $username)
 {
     $result = mysqli_query($conn, $sql);
-    print_r($result);
     if (!$result) {
         header('Location: ../main/failedLogin.html');
     }

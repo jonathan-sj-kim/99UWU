@@ -28,7 +28,7 @@ foreach ($tables as $table) {
 <body>
 <form action="searchConditions.php" method="post">
     <br>
-    Which columns do you want to keep? CHOOSE AT LEAST ONE.
+    Which columns do you want to keep? CHOOSE AT LEAST ONE FROM EACH TABLE OR RESULTS WILL NOT SHOW.
     </br>
     You will be able to choose a group by option later on.
     </br>
