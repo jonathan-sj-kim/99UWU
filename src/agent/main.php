@@ -25,6 +25,7 @@
     </div>
 </form>
 
+
 <?php
 
 function agentlogin($conn, $username, $toursql, $transql, $propsql, $houssql)
@@ -37,7 +38,7 @@ function agentlogin($conn, $username, $toursql, $transql, $propsql, $houssql)
         echo "failed query";
     }
     $type = NULL;
-    
+
     $name = NULL;
 
     if (0===mysqli_num_rows($tourresult)){
