@@ -64,7 +64,7 @@ function agentlogin($conn, $username, $toursql, $transql, $propsql, $houssql)
     if ($name) {
         header('location: '.$type.'?name=' . urlencode($name) . '&username=' . urlencode($username));
     } else {
-        header('Location: ../main/failedLogin.html');
+        header('Location: ../create/failedLogin.html');
 
     }
     CloseCon($conn);
