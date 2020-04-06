@@ -19,15 +19,15 @@ $query = '';
 while ($col = mysqli_fetch_assoc($result)) {
     array_push($columns, $col);
 }
-?>
-<h2> Here is the current data in the table. </h2>
-<?php
 
+echo"<h2> Here is the current data in the table. </h2>";
 displayQueryResults($conn, "SELECT * FROM ".$table);
 CloseCon($conn);
-?>
-<h3> Please fill in the relevant data below: </h3>
-<?php
+
+echo"<h3> Please fill in the relevant data below: </h3>";
+
+
+
 if ($choice == 'INSERT') {
     $query = "INSERT INTO " . $table . " (";
     for ($i = 0; $i < count($columns); $i++) {
@@ -37,51 +37,51 @@ if ($choice == 'INSERT') {
             $query = $query . " " . $columns[$i]["Field"];
         }
     }
-    $query = $query . ") VALUES ("; ?>
-    <form action="alterInsert.php" method="post">
-        <?php
+    $query = $query . ") VALUES (";
+    echo "<form action='alterInsert.php' method='post'>";
+
         for ($i = 0; $i < count($columns); $i++){
-            echo $columns[$i]["Field"]; ?>
-            <input name="values[]" type="text" placeholder="<?php echo $columns[$i]['Type']; ?>" required/>
-            <br>
-        <?php } ?>
-        <input type="hidden" value="<?php echo $query; ?>" name="query"/>
-        <input type="hidden" value="<?php echo $table; ?>" name="table"/>
-        <input type="submit" value="Insert"/>
-    </form>
-<?php } else if ($choice == 'UPDATE') {
+            echo $columns[$i]["Field"];
+            echo "<input name='values[]' type='text' placeholder=".$columns[$i]['Type']." required/>";
+            echo "<br>";
+        }
+        echo"<input type='hidden' value=".$query." name='query'/>";
+        echo"<input type='hidden' value=".$table." name='table'/>";
+        echo"<input type='submit' value='Insert'/>
+</form>";
+} else if ($choice == 'UPDATE') {
     $query = "UPDATE " . $table . " SET ";
-    echo $query; ?>
-    <form action="alterUpdate.php" method="post">
-        <?php
+    echo $query;
+    echo "<form action='alterUpdate.php' method='post'>";
+
         for ($i = 0; $i < count($columns); $i++) {
-            echo "<br>" . $columns[$i]['Field'] . " = " ?>
-            <input type="text" name="values[]" placeholder="<?php echo $columns[$i]['Type']; ?>">
-        <?php } ?>
-        <br>
-        From entries matching this condition:
-        <input type="text" name="cond" placeholder=""> <br>
-        <input type="hidden" value="<?php echo $query; ?>" name="query"/>
-        <input type="hidden" value="<?php echo $columns; ?>" name="columns"/>
-        <input type="hidden" value="<?php echo $table; ?>" name="table"/>
-        <input type="submit" value="Insert"/>
-    </form>
-<?php } else {
-    $query = "DELETE FROM ".$table." WHERE "; ?>
-    Here are the columns available and their types <br>
-    <?php for ($i = 0; $i < count($columns); $i++) {
-        echo $columns[$i]["Field"]." ".$columns[$i]["Type"]; ?>
-        <br>
-    <?php } ?>
-    <form action="alterDelete.php" method="post">
+            echo "<br>" . $columns[$i]['Field'] . " = ";
+            echo"<input type='text' name='values[]' placeholder=".$columns[$i]['Type'].">";
+        }
+        echo"<br>";
+        echo"From entries matching this condition:
+        <input type='text' name='cond' placeholder=''> <br>";
+        echo"<input type='hidden' value=".$query." name='query'/>";
+        echo"<input type='hidden' value=".$columns." name='columns'/>";
+        echo"<input type='hidden' value=".$table." name='table'/>";
+        echo"<input type='submit' value='Update'/>
+    </form>";
+} else {
+    $query = 'DELETE FROM '.$table.' WHERE ';
+    echo"Here are the columns available and their types <br>";
+    for ($i = 0; $i < count($columns); $i++) {
+        echo $columns[$i]["Field"]." ".$columns[$i]["Type"];
+        echo"<br>";
+    }
+    echo"<form action='alterDelete.php' method='post'>
         What kind of entries do you want to delete?
         Enter conditions like its part of a WHERE clause. <br>
-        <input type="text" name="cond" placeholder="">
-        <input type="hidden" value="<?php echo $query; ?>" name="query"/>
-        <input type="hidden" value="<?php echo $table; ?>" name="table"/>
-        <input type="submit" value="Delete" />
-    </form>
-<?php } ?>
+        <input type='text' name='cond' placeholder=''>
+        <input type='hidden' value=".$query." name='query'/>
+        <input type='hidden' value=".$table." name='table'/>
+        <input type='submit' value='Delete' />
+    </form>";
+} ?>
 </body>
 </html>
 
