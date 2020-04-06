@@ -90,13 +90,13 @@ Click on done if you do not want to impose any conditions on this search or if y
             echo "<br></p>";
     }echo "<p>";
         foreach ($tables as $t):
-            echo"<input type='hidden' id='tables' name='tables[]' value=".$t."/>";
+            echo"<input type='hidden' id='tables' name='tables[]' value=".$t.">";
         endforeach;
         foreach ($columns as $c):
-            echo"<input type='hidden' id='columns' name='columns[]' value=".$c."/>";
+            echo"<input type='hidden' id='columns' name='columns[]' value=".$c.">";
         endforeach;
         foreach ($selectedColumns as $sc):
-            echo "<input type='hidden' id='selectedColumns' name='selectedColumns[]' value=".$sc."/>";
+            echo "<input type='hidden' id='selectedColumns' name='selectedColumns[]' value=".$sc.">";
         endforeach;
 
         echo "<select name='orderBy'>
@@ -109,8 +109,8 @@ Click on done if you do not want to impose any conditions on this search or if y
 
 
         </select>
-        <input type='submit' name='submit' value='Add'/>
-        <input type='submit' name='submit' value='Done'/>
+        <input type='submit' name='submit' value='Add'>
+        <input type='submit' name='submit' value='Done'>
     </p>
 
 

@@ -39,17 +39,18 @@ foreach ($tables as $table) {
         <?php foreach($columns as $column):
 
             echo $column;
-            echo "<input name='selectedColumns[]' type='checkbox' value=".$column."/>";
+            echo "<input name='selectedColumns[]' type='checkbox' value=".$column.">";
             echo "<br>";
         endforeach;
         foreach($tables as $t):
-            echo "<input type='hidden' id='tables' name='tables[]' value=".$t." />";
+            echo "<input type='hidden' id='tables' name='tables[]' value=".$t.">";
         endforeach;
         foreach($columns as $c):
-            echo "<input type='hidden' id='columns' name='columns[]' value=".$c."/>";
+            echo "<input type='hidden' id='columns' name='columns[]' value=".$c.">";
         endforeach; ?>
+        echo
         <br>
-        <input type="submit" name="Search" value="Search" />
+        <input type="submit" name="Search" value="Search">
     </form>
 </div>
 </body>
