@@ -14,10 +14,6 @@ $budget = 100000000;
 if ($_POST['budget']){
     $budget = $_POST['budget'];
 }
-$noBedroom = 1000;
-if ($_POST['noBedrooms']){
-    $noBedroom = $_POST['noBedrooms'];
-}
 $zone = $_POST['zone'];
 $parking = 0;
 if (!empty($_POST['parking'])){
@@ -25,6 +21,7 @@ if (!empty($_POST['parking'])){
 }
 
 $username = $_POST['username'];
+$name = $_POST['name'];
 $connection = OpenCon();
 $sql = '';
 if ($zone){
@@ -43,16 +40,17 @@ displayQueryResults($connection, $sql);
 <form action="travellerRenting.php" method="post">
     <br>
     <label for="address"> Which address would you like to rent?</label>
-    <input type="text" id="address" name="address" placeholder="please copy and paste from above">
+    <input type="text" id="address" name="address" placeholder="please copy and paste from above" />
     <br>
     <label for="rentalDate"> When would you like to rent?</label>
-    <input type="text" id="rentalDate" name="rentalDate" placeholder="YYYY-MM-DD">
+    <input type="text" id="rentalDate" name="rentalDate" placeholder="YYYY-MM-DD" />
     <br>
     <label for="duration">How long would you like to stay for?</label>
     <br>
-    <input type="number" id="duration" name="duration" value="1" />
+    <input type="number" id="duration" name="duration" required />
     <br>
-    <input type="hidden" name="username" value="<?php echo $username; ?>"
+    <input type="hidden" name="username" value="<?php echo $username; ?>" />
+    <input type="hidden" name="name" value="<?php echo $name; ?>" />
     <input type="submit" value="Make booking!"/>
 </form>
 <br>

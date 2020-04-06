@@ -59,7 +59,7 @@ Click on done if you do not want to impose any conditions on this search or if y
                     }
                 echo "</select>";
             } else {
-                echo"<select  for='queryColumn' id='queryColumn' name='queryColumns[] required'>
+                echo"<select  for='queryColumn' id='queryColumn' name='queryColumns[]' required>
                     <option disabled selected value> -- select an option -- </option>";
                     for ($c = 0; $c < count($columns); $c++) {
                         echo "<option value=".$columns[$c].">";

@@ -20,10 +20,10 @@ include 'retrieve.php';
     while ( $table = mysqli_fetch_array($tables) ):
         echo $table[0]; ?>
         <input for="option" id="<?php echo $table[0]; ?>" name="tables[]" type="checkbox" value="<?php echo $table[0]; ?>">
-        </br>
+        <br>
     <?php endwhile; ?>
     <input for="submit" type="submit" name="Search" value="Search" />
-
+    </p>
 </form>
 </div>
 </body>
