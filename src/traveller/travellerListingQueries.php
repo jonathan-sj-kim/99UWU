@@ -7,8 +7,8 @@
 </head>
 <body>
 <form action="travellerListingQuery.php" method="post">
-    <input name="username" type="hidden" id="hiddenUserName" value="<?php echo $_GET['username']; ?>" />
-    <input name="name" type="hidden" id="hiddenName" value="<?php echo $_GET['name']; ?>" />
+    <input name="username" type="hidden" value="<?php echo $_GET['username']; ?>" />
+    <input name="name" type="hidden" value="<?php echo $_GET['name']; ?>" />
     Welcome <?php echo $_GET['name']; ?>!
     <br>
     What kind of rentals are you looking for?
@@ -28,6 +28,7 @@
         <option value="Kitsilano">Kitsilano</option>
         <option value="Metrotown">Metrotown</option>
         <option value="Downtown">Downtown</option>
+        <option value="Kerrisdale">Kerrisdale</option>
     </select>
     </br>
     <input type="submit" value="Search">

@@ -45,7 +45,7 @@ Click on done if you do not want to impose any conditions on this search or if y
 
     for ($i = 0; $i < $count; $i++) {
         echo "<p class='field'>";
-            echo "Condition ".$i+1;
+            echo "Condition ".($i+1);
             if (count($queryColumns) > $i) {
                 echo"<select  for='queryColumn' id='queryColumns' name='queryColumns[]'>
                     <option disabled selected value> -- select an option -- </option>";
@@ -59,7 +59,7 @@ Click on done if you do not want to impose any conditions on this search or if y
                     }
                 echo "</select>";
             } else {
-                echo"<select  for='queryColumn' id='queryColumn' name='queryColumns[] required'>
+                echo"<select  for='queryColumn' id='queryColumn' name='queryColumns[]' required>
                     <option disabled selected value> -- select an option -- </option>";
                     for ($c = 0; $c < count($columns); $c++) {
                         echo "<option value=".$columns[$c].">";
@@ -99,7 +99,7 @@ Click on done if you do not want to impose any conditions on this search or if y
             echo "<input type='hidden' id='selectedColumns' name='selectedColumns[]' value=".$sc.">";
         endforeach;
 
-        echo "<select name='orderBy'>
+        echo "Order By: <select name='orderBy'>
             <option disabled selected value> -- select an option -- </option>";
             foreach($selectedColumns as $sc):
                 echo"<option value='selectedColumns[]' value=".$sc."/>";
