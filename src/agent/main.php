@@ -14,10 +14,10 @@
     </br>
     <br>
     <label for="username">Username</label>
-    <input class="input" id="username" name="username" type="text" placeholder="type your username here" required>
+    <input class="input" id="username" name="username" type="email" placeholder="type your username here" required>
     </br>
     <label for="password">Password</label>
-    <input class="input" id="password" name="password" type="text" placeholder="type your pass in here (case sensitive)">
+    <input class="input" id="password" name="password" type="password" placeholder="type your pass in here (case sensitive)">
     </br>
     <button class="button" name="login" type="submit">Login</button>
     <div class="nextstep">
