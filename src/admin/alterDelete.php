@@ -16,6 +16,7 @@ if(!mysqli_query($conn, $sql)){
 } else {
     echo "Successfully delete - table data will be displayed below <br>";
 }
+
 displayQueryResults($conn, "SELECT * FROM ".$table);
 CloseCon($conn);
 ?>
