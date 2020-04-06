@@ -17,7 +17,6 @@ function OpenCon()
 
     return $conn;
 
-
     /*if ($dconn) {
         echo "Database is Connected";
         return $dconn;

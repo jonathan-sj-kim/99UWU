@@ -28,9 +28,14 @@ if (isset($_POST["submit"]) AND $_POST["submit"] == "Add") {
 }
 ?>
 <html lang="en">
+
+<head>
+<link rel="stylesheet" type="text/css" href="adminmain.css">
+</head>
+
 <body>
-Here are the tables.columns that you have selected:
-<br>
+<div class="header">
+<h1> Here are the tables.columns that you have selected:</h1>
 <?php foreach ($selectedColumns as $tc) {
     echo $tc . "<br>";
 } ?>
@@ -96,10 +101,20 @@ Click on done if you do not want to impose any conditions on this search or if y
             <input type="hidden" id="selectedColumns" name="selectedColumns[]" value="<?php echo $sc; ?>"/>
         <?php endforeach; ?>
 
+        <select name="orderBy">
+            <option disabled selected value> -- select an option -- </option>
+            <?php foreach ($selectedColumns as $sc): ?>
+                <option value="selectedColumns[]" value="<?php echo $sc; ?>"/>
+                <?php echo $sc; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
         <input type="submit" name="submit" value="Add"/>
         <input type="submit" name="submit" value="Done"/>
     </p>
-</form>
 
+
+</form>
+</div>
 </body>
 </html>

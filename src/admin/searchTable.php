@@ -7,22 +7,24 @@ include 'retrieve.php';
 <head>
     <meta charset="UTF-8">
     <title>Admin starter</title>
+    <link rel="stylesheet" type="text/css" href="adminmain.css">
+
 </head>
 <body>
+<div class="header">
 <form action="searchColumn.php" method="post">
-    <br>
-    Which tables do you want to look at?
-    </br>
-    Please refer to the options listed below to make your choice.
-    </br>
-    <?php $tables = retrieve($connection, $sql);
+    <h1> Which tables do you want to look at?</h1>
+    <h3>Please refer to the options listed below to make your choice. </h3>
+    <p>
+    <?php $tables = retrieve($sql);
     while ( $table = mysqli_fetch_array($tables) ):
         echo $table[0]; ?>
         <input for="option" id="<?php echo $table[0]; ?>" name="tables[]" type="checkbox" value="<?php echo $table[0]; ?>">
         </br>
     <?php endwhile; ?>
     <input for="submit" type="submit" name="Search" value="Search" />
-</form>
 
+</form>
+</div>
 </body>
 </html>

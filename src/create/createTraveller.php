@@ -5,6 +5,7 @@
     <title>Create Traveller Account </title>
     <link rel="stylesheet" type="text/css" href="../create/createmain.css">
 
+    
 </head>
 <div class="header">
     <h1>Welcome to create your traveller account!</h1>

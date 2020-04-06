@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome Admin Team!</title>
+    <link rel="stylesheet" type="text/css" href="adminmain.css">
 </head>
+<style>
+    input[value], input[value], input[value] {
+        background-color: transparent;
+        border: #333333 solid 2px;
+        padding: 6px 5px;
+        text-decoration: none;
+        margin: 5px 2px;
+        width:120px;
+        font-size: 13px;
+    }
+</style>
+
 <body>
-Hello Admin team!
-</br>
-What would you like to do?
-<form action="main.php" method="post">
-    </br>
-    <input name="search_btn" type = "submit"
-           value = "Search"/>
-    </br>
-    or
-    </br>
-    <input name="search_btn" type = "submit"
-           value = "Alter database" />
-</form>
+<div class="header">
+    <h1>Hello Admin team! </h1>
+    <h2>What would you like to do? </h2>
+
+    <form action="main.php" method="post">
+        <p>
+                <input name="search_btn" type = "submit" value = "Search"/> <br>
+                <input name="search_btn" type = "submit" value = "Traveller Analytics"/> <br>
+            <input name="search_btn" type = "submit" value = "Alter Database" /> <br></p>
+                <input name="search_btn" type = "submit" value = "Exit" />
+    </form>
+</div>
+
 </body>
 </html>
