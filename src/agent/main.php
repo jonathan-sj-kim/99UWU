@@ -49,15 +49,15 @@ function agentlogin($conn, $username, $toursql, $transql, $propsql, $houssql)
                     $type = "housekeeping/main.html";
                 }
             } else {
-                $name = mysqli_fetch_field_direct($housresult,0);
+                $name = mysqli_fetch_field_direct($propresult,0);
                 $type = "property/main.html";
             }
         } else {
-            $name = mysqli_fetch_field_direct($housresult,0);
+            $name = mysqli_fetch_field_direct($tranresult,0);
             $type = "transportation/main.html";
         }
     } else {
-        $name = mysqli_fetch_field_direct($housresult,0);
+        $name = mysqli_fetch_field_direct($tourresult,0);
         $type = "tourism/main.html";
     }
 
