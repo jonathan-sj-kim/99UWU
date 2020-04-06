@@ -3,7 +3,6 @@ By: Gallant Tang, Jon Kim, Rene Huang
 For: Computer Science 304 - Introduction to Relational Databases
 https://docs.google.com/document/d/1N7SbuS4jvwGlqt7fcjqG1YdA68M8K-AyB_1hYXzUnWw/edit
 
-
 Files:
 Oracle-test is the starter, let's use that to build everything else
 SQL is what we'll be using to populate the database
