@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin starter</title>
+    <link rel="stylesheet" type="text/css" href="adminmain.css">
+
+</head>
+<body>
 <?php
 include 'retrieve.php';
 $sql = "SHOW TABLES";
@@ -12,32 +21,25 @@ $columns = [];
 $sqlTemplate = "SHOW columns FROM ";
 foreach ($tables as $table) {
     $sql = $sqlTemplate.$table.";";
-    $newColumns = retrieve($connection, $sql);
+    $newColumns = retrieve($sql);
     while ($row = mysqli_fetch_assoc($newColumns)) {
         $entry = $table.".".$row["Field"];
         array_push($columns, $entry);
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin starter</title>
-</head>
-<body>
+<div class="header">
 <form action="searchConditions.php" method="post">
-    <br>
-    Which columns do you want to keep? CHOOSE AT LEAST ONE.
-    </br>
-    You will be able to choose a group by option later on.
-    </br>
-    Please refer to the options listed below to make your choice.
-    </br>
+    <h1>Which columns do you want to keep? </h1>
+    <p> CHOOSE AT LEAST ONE FROM EACH TABLE OR RESULTS WILL NOT SHOW. <br>
+        You will be able to choose a group by option later on. </p>
+
+    <h3>Please refer to the options listed below to make your choice.</h3>
+
     <? foreach($columns as $column):?>
         <?php echo $column; ?>
         <input name="selectedColumns[]" type="checkbox" value="<?php echo $column; ?>">
-        </br>
+        <br>
     <?php endforeach; ?>
     <?php foreach($tables as $t): ?>
         <input type="hidden" id="tables" name="tables[]" value="<?php echo $t; ?>" />
@@ -45,8 +47,9 @@ foreach ($tables as $table) {
     <?php foreach($columns as $c): ?>
         <input type="hidden" id="columns" name="columns[]" value="<?php echo $c; ?>" />
     <?php endforeach; ?>
+    <br>
     <input type="submit" name="Search" value="Search" />
 </form>
-
+</div>
 </body>
 </html>
