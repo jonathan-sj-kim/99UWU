@@ -42,7 +42,7 @@ Click on done if you do not want to impose any conditions on this search or if y
         <p class="field">
             Condition <?php echo $i + 1; ?>
             <?php if (count($queryColumns) > $i) { ?>
-                <select id="queryColumns" name="queryColumns[]">
+                <select  for="queryColumn" id="queryColumns" name="queryColumns[]">
                     <option disabled selected value> -- select an option -- </option>
                     <?php for ($c = 0; $c < count($columns); $c++) { ?>
                         <option value="<?php echo $columns[$c]; ?>"
@@ -54,7 +54,7 @@ Click on done if you do not want to impose any conditions on this search or if y
                     <?php } ?>
                 </select>
             <?php } else { ?>
-                <select id="queryColumn" name="queryColumns[] required">
+                <select  for="queryColumn" id="queryColumn" name="queryColumns[] required">
                     <option disabled selected value> -- select an option -- </option>
                     <?php for ($c = 0; $c < count($columns); $c++) { ?>
                         <option value="<?php echo $columns[$c]; ?>">
@@ -63,7 +63,7 @@ Click on done if you do not want to impose any conditions on this search or if y
                     <?php } ?>
                 </select>
             <?php } ?>
-            <select id="operator" name="operators[]" value="operators" required>
+            <select for="operator" id="operator" name="operators[]" value="operators" required>
                 <option disabled selected value> -- select an option -- </option>
                 <option value="="> = </option>
                 <option value="<"> < </option>

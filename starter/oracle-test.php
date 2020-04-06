@@ -37,8 +37,8 @@
         <h2>Insert Values into DemoTable</h2>
         <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
-            Number: <input type="text" name="insNo"> <br /><br />
-            Name: <input type="text" name="insName"> <br /><br />
+            <input for="Number" type="text" name="insNo"> <br /><br />
+            <input for="Name" type="text" name="insName"> <br /><br />
 
             <input type="submit" value="Insert" name="insertSubmit"></p>
         </form>
@@ -50,8 +50,8 @@
 
         <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="updateQueryRequest" name="updateQueryRequest">
-            Old Name: <input type="text" name="oldName"> <br /><br />
-            New Name: <input type="text" name="newName"> <br /><br />
+            <input for="Old Name" type="text" name="oldName"> <br /><br />
+            <input for="New Name" type="text" name="newName"> <br /><br />
 
             <input type="submit" value="Update" name="updateSubmit"></p>
         </form>
@@ -216,7 +216,6 @@
         }
 
         function handleCountRequest() {
-            global $db_conn;
 
             $result = executePlainSQL("SELECT Count(*) FROM demoTable");
 

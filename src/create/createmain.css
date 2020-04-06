@@ -69,7 +69,7 @@ body {
 
 /* input box*/
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -80,7 +80,7 @@ input[type=text], input[type=password] {
 }
 
 /* Style the cancel & submit button */
-.nextstep a {
+.nextstep a, button {
     background-color: #333;
     color: white;
     display: inline-block;;
@@ -92,6 +92,27 @@ input[type=text], input[type=password] {
     border-radius: 12px;
     margin: 2px 1px;
 }
+
+
+.ui.selection.dropdown {
+    cursor: pointer;
+    word-wrap: break-word;
+    line-height: 1em;
+    white-space: normal;
+    outline: 0;
+    transform: rotateZ(0deg);
+    min-width: 14em;
+    min-height: 2.71428571em;
+    background: #ffffff;
+    display: inline-block;
+    padding: 0.78571429em 2.1em 0.78571429em 1em;
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: none;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-radius: 0.28571429rem;
+    transition: box-shadow 0.1s ease, width 0.1s ease;
+}
+
 
 /* Style the createU button */
 .createU a {
@@ -140,7 +161,7 @@ input[type=text], input[type=password] {
 }
 
 
-.input[type=button], input[type=submit], input[type=reset] {
+input[type=button], input[type=submit], input[type=reset] {
     background-color: black;
     opacity: 0.2;
     border: none;

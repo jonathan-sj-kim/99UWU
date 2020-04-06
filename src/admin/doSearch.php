@@ -42,7 +42,7 @@ include "../connect.php";
 $conn = OpenCon();
 displayQueryResults($conn, $sql);
 ?>
-<html>
+<html lang="en">
 <title>Search</title>
 <body>
 Would you like to make this an aggregated search?

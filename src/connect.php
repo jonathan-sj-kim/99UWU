@@ -31,5 +31,5 @@ function OpenCon()
 }
 function CloseCon($conn)
 {
-    $conn -> close();
+    mysqli_close($conn);
 }
