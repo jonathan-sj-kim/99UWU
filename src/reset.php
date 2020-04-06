@@ -511,25 +511,21 @@ function constrain(){
 
 <div class="header">
     <h1>Database 99UWU is resetting</h1>
-
     <h3> But was that reset successful?</h3>
 
-
     <div class="topnav">
-
         <p style="font-size:15px; font-color: green;"><?php
             global $message;
             echo $message; ?>
         </p>
     </div>
 
-
-
     <div class="create">
         <a href="../src">Go Back Home</a>
     </div>
 
-
+    <div class="row">
+    </div>
 
 </div>
 

@@ -1,4 +1,5 @@
 <html lang="en">
+
 <?php
 $query = $_POST['query'];
 $values = $_POST['values'];
@@ -23,4 +24,5 @@ displayQueryResults($conn, "SELECT * FROM ".$table);
 CloseCon($conn);
 ?>
 <input type="submit" value="Menu" onclick="window.location.href='main.html'"/>
+
 </html>

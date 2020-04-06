@@ -15,7 +15,7 @@ body {
     background-color: #333;
     opacity: 0.8;
     width: 45%;
-    padding: 10px;
+    padding: 30px;
     font-family: Bahnschrift;
     text-align: center;
     color: white;
@@ -65,7 +65,7 @@ body {
     font-family: Bahnschrift;
     padding: 12px 14px;
     text-decoration: none;
-    border: 2px solid #e7e7e7
+    border: 2px solid #e7e7e7;
 }
 
 /* Change color on hover */

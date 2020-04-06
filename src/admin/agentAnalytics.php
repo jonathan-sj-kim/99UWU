@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin starter</title>
+    <link rel="stylesheet" type="text/css" href="adminmain.css">
+
+</head>
+
 <?php
 $zone = $_POST['zone'];
 $sql = "SELECT Username 

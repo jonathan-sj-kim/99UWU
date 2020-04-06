@@ -85,6 +85,7 @@ displayQueryResults($conn, $sql);
 ?>
 <html lang="en">
 <title>Search</title>
+<link rel="stylesheet" type="text/css" href="adminmain.css">
 <body>
 <br>
 To return to the main admin page

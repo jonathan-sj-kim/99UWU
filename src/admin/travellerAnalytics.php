@@ -1,4 +1,6 @@
 <html lang="'en">
+<link rel="stylesheet" type="text/css" href="adminmain.css">
+
 <?php
 $cond = $_POST['cond'];
 echo $cond."<br>";

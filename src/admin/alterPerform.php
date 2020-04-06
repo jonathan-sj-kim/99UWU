@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Perform Alter Table</title>
+    <link rel="stylesheet" type="text/css" href="adminmain.css">
 </head>
 <body>
 <?php
@@ -19,13 +20,13 @@ while ($col = mysqli_fetch_assoc($result)) {
     array_push($columns, $col);
 }
 ?>
-Here is the current data in the table. <br>
+<h2> Here is the current data in the table. </h2>
 <?php
 
 displayQueryResults($conn, "SELECT * FROM ".$table);
 CloseCon($conn);
 ?>
-Please fill in the relevant data below: <br>
+<h3> Please fill in the relevant data below: </h3>
 <?php
 if ($choice == 'INSERT') {
     $query = "INSERT INTO " . $table . " (";

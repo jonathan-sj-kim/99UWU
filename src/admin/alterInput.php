@@ -6,12 +6,11 @@ $table = $_POST['table'];
 <head>
     <meta charset="UTF-8">
     <title>Admin starter</title>
+    <link rel="stylesheet" type="text/css" href="adminmain.css">
 </head>
 <body>
-<br>
-What would you like to do with the <?php echo $table; ?> table?
+<h2> What would you like to do with the <?php echo $table; ?> table?</h2>
 
-<br>
 <form action="alterPerform.php" method="post">
     <label for="choice"> Please refer to the options listed below to make your choice. </label>
     <select id="choice" name="choice">

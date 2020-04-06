@@ -31,7 +31,7 @@ foreach ($tables as $table) {
 <div class="header">
 <form action="searchConditions.php" method="post">
     <h1>Which columns do you want to keep? </h1>
-    <p> CHOOSE AT LEAST ONE FROM EACH TABLE OR RESULTS WILL NOT SHOW.
+    <p> CHOOSE AT LEAST ONE FROM EACH TABLE OR RESULTS WILL NOT SHOW. <br>
         You will be able to choose a group by option later on. </p>
 
     <h3>Please refer to the options listed below to make your choice.</h3>
