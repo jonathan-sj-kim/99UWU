@@ -38,79 +38,79 @@ if (isset($_POST["submit"]) AND $_POST["submit"] == "Add") {
 <h1> Here are the tables.columns that you have selected:</h1>
 <?php foreach ($selectedColumns as $tc) {
     echo $tc . "<br>";
-} ?>
-Would you like to add any conditions? <br>
-Click on done if you do not want to impose any conditions on this search or if you are done adding conditions.
-<br>
-<form method="post">
-    <?php for ($i = 0; $i < $count; $i++) { ?>
-        <p class="field">
-            Condition <?php echo $i + 1; ?>
-            <?php if (count($queryColumns) > $i) { ?>
-                <select  for="queryColumn" id="queryColumns" name="queryColumns[]">
-                    <option disabled selected value> -- select an option -- </option>
-                    <?php for ($c = 0; $c < count($columns); $c++) { ?>
-                        <option value="<?php echo $columns[$c]; ?>"
-                            <?php if ($queryColumns[$i] == $columns[$c]) { ?>
-                                selected
-                            <?php } ?>>
-                            <?php echo $columns[$c]; ?>
-                        </option>
-                    <?php } ?>
-                </select>
-            <?php } else { ?>
-                <select  for="queryColumn" id="queryColumn" name="queryColumns[] required">
-                    <option disabled selected value> -- select an option -- </option>
-                    <?php for ($c = 0; $c < count($columns); $c++) { ?>
-                        <option value="<?php echo $columns[$c]; ?>">
-                            <?php echo $columns[$c]; ?>
-                        </option>
-                    <?php } ?>
-                </select>
-            <?php } ?>
-            <select for="operator" id="operator" name="operators[]" value="operators" required>
-                <option disabled selected value> -- select an option -- </option>
-                <option value="="> = </option>
-                <option value="<"> < </option>
-                <option value=">"> > </option>
-                <option value="<="> <= </option>
-                <option value=">="> >= </option>
-                <option value="!="> != </option>
-                <option value="LIKE"> LIKE </option>
-            </select>
-            <label for="cond">to</label>
-            <?php if (count($cond) > $i) { ?>
-                <input type="text" name="cond[]" id="cond"
-                       value='<?php echo $cond[$i]; ?>'
-                       placeholder="for strings please use double quotes" required>
-            <?php } else { ?>
-                <input type="text" name="cond[]" id="cond"
-                       placeholder="for strings please use double quotes" required>
-            <? } ?>
-            <br>
-        </p>
-    <?php } ?>
-    <p>
-        <?php foreach ($tables as $t): ?>
-            <input type="hidden" id="tables" name="tables[]" value="<?php echo $t; ?>"/>
-        <?php endforeach; ?>
-        <?php foreach ($columns as $c): ?>
-            <input type="hidden" id="columns" name="columns[]" value="<?php echo $c; ?>"/>
-        <?php endforeach; ?>
-        <?php foreach ($selectedColumns as $sc): ?>
-            <input type="hidden" id="selectedColumns" name="selectedColumns[]" value="<?php echo $sc; ?>"/>
-        <?php endforeach; ?>
+}
+echo"Would you like to add any conditions? <br>
+Click on done if you do not want to impose any conditions on this search or if you are done adding conditions. <br>
+<form method='post'>";
 
-        <select name="orderBy">
-            <option disabled selected value> -- select an option -- </option>
-            <?php foreach ($selectedColumns as $sc): ?>
-                <option value="selectedColumns[]" value="<?php echo $sc; ?>"/>
-                <?php echo $sc; ?>
-                </option>
-            <?php endforeach; ?>
+    for ($i = 0; $i < $count; $i++) {
+        echo "<p class='field'>";
+            echo "Condition ".$i+1;
+            if (count($queryColumns) > $i) {
+                echo"<select  for='queryColumn' id='queryColumns' name='queryColumns[]'>
+                    <option disabled selected value> -- select an option -- </option>";
+                    for ($c = 0; $c < count($columns); $c++) {
+                        echo "<option value=".$columns[$c];
+                            if ($queryColumns[$i] == $columns[$c]) {
+                                echo "selected";
+                            } echo">";
+                            echo $columns[$c];
+                        echo "</option>";
+                    }
+                echo "</select>";
+            } else {
+                echo"<select  for='queryColumn' id='queryColumn' name='queryColumns[] required'>
+                    <option disabled selected value> -- select an option -- </option>";
+                    for ($c = 0; $c < count($columns); $c++) {
+                        echo "<option value=".$columns[$c].">";
+                            echo $columns[$c];
+                        echo "</option>";
+                    }
+                echo "</select>";
+            }
+            echo"<select for='operator' id='operator' name='operators[]' value='operators' required>
+                <option disabled selected value> -- select an option -- </option>
+                <option value='='> = </option>
+                <option value='<'> < </option>
+                <option value='>'> > </option>
+                <option value='<='> <= </option>
+                <option value='>='> >= </option>
+                <option value='!='> != </option>
+                <option value='LIKE'> LIKE </option>
+            </select>
+            <label for='cond'>to</label>";
+            if (count($cond) > $i) {
+                echo"<input type='text' name='cond[]' id='cond'
+                       value=".$cond[$i];
+                       echo"placeholder='for strings please use double quotes' required>";
+            } else {
+                echo "<input type='text' name='cond[]' id='cond'
+                       placeholder='for strings please use double quotes' required>";
+            }
+            echo "<br></p>";
+    }echo "<p>";
+        foreach ($tables as $t):
+            echo"<input type='hidden' id='tables' name='tables[]' value=".$t."/>";
+        endforeach;
+        foreach ($columns as $c):
+            echo"<input type='hidden' id='columns' name='columns[]' value=".$c."/>";
+        endforeach;
+        foreach ($selectedColumns as $sc):
+            echo "<input type='hidden' id='selectedColumns' name='selectedColumns[]' value=".$sc."/>";
+        endforeach;
+
+        echo "<select name='orderBy'>
+            <option disabled selected value> -- select an option -- </option>";
+            foreach($selectedColumns as $sc):
+                echo"<option value='selectedColumns[]' value=".$sc."/>";
+                echo $sc;
+                echo "</option>";
+                endforeach;?>
+
+
         </select>
-        <input type="submit" name="submit" value="Add"/>
-        <input type="submit" name="submit" value="Done"/>
+        <input type='submit' name='submit' value='Add'/>
+        <input type='submit' name='submit' value='Done'/>
     </p>
 
 
