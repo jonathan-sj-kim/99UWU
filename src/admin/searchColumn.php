@@ -48,7 +48,6 @@ foreach ($tables as $table) {
         foreach($columns as $c):
             echo "<input type='hidden' id='columns' name='columns[]' value=".$c.">";
         endforeach; ?>
-        echo
         <br>
         <input type="submit" name="Search" value="Search">
     </form>
