@@ -22,7 +22,7 @@ while ($col = mysqli_fetch_assoc($result    )) {
 for($i = 0; $i < count($values); $i++){
     if($values[$i]!=''){
         if ($i == count($values) - 1) {
-            $query = $query.$columns[$i]["Field"]."='".$values[$i]."'',";
+            $query = $query.$columns[$i]["Field"]."='".$values[$i]."',";
         } else {
             $query = $query.$columns[$i]["Field"]."='".$values[$i]."',";
         }
