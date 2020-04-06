@@ -14,7 +14,7 @@ $sqlpre = "SHOW COLUMNS FROM " . $table;
 $conn = OpenCon();
 $result = mysqli_query($conn, $sqlpre) or die((mysqli_error($conn)));
 $columns = [];
-while ($col = mysqli_fetch_assoc($result)) {
+while ($col = mysqli_fetch_assoc($result    )) {
     array_push($columns, $col);
 }
 
