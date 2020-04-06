@@ -6,7 +6,7 @@ $table = $_POST['table'];
 include "../display.php";
 include "../connect.php";
 
-$sql = $query." FROM ".$table." WHERE ".$table.".".$cond;
+$sql = $query.$cond;
 
 echo $sql."<br>";
 $conn = OpenCon();
